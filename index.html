@@ -1,556 +1,479 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Drift | Pahami Energi & Produktivitasmu</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drift — Wellness Intelligence & Predictive Focus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "surface-deep": "#0B1020",
-                        "energy-high": "#22D3EE",
-                        "accent-blue": "#60A5FA",
-                        "surface-elevated": "#111827",
-                        "accent-cyan": "#22D3EE",
-                        "surface-variant": "#353436",
-                        "surface-container": "#201f21",
-                        "surface-tint": "#c1c5dc",
-                        "surface": "#131315",
-                        "secondary-fixed-dim": "#c0c1ff",
-                        "secondary-container": "#3131c0",
-                        "outline-variant": "#46464c",
-                        "primary-fixed": "#dee1f9",
-                        "surface-bright": "#39393a",
-                        "energy-mid": "#A855F7",
-                        "surface-container-highest": "#353436",
-                        "on-primary": "#2b3041",
-                        "primary-container": "#0b1020",
-                        "on-primary-container": "#777c90",
-                        "on-tertiary-fixed-variant": "#004e5a",
-                        "tertiary": "#2fd9f4",
-                        "on-error-container": "#ffdad6",
-                        "inverse-primary": "#595e71",
-                        "on-secondary": "#1000a9",
-                        "surface-dim": "#131315",
-                        "tertiary-fixed-dim": "#2fd9f4",
-                        "background": "#131315",
-                        "on-secondary-fixed-variant": "#2f2ebe",
-                        "on-primary-fixed": "#161b2b",
-                        "on-background": "#e5e2e3",
-                        "surface-container-lowest": "#0e0e0f",
-                        "outline": "#909097",
-                        "surface-container-low": "#1c1b1d",
-                        "error-container": "#93000a",
-                        "on-secondary-fixed": "#07006c",
-                        "energy-low": "#F43F5E",
-                        "inverse-surface": "#e5e2e3",
-                        "on-secondary-container": "#b0b2ff",
-                        "primary": "#c1c5dc",
-                        "on-tertiary-fixed": "#001f25",
-                        "on-tertiary": "#00363e",
-                        "primary-fixed-dim": "#c1c5dc",
-                        "secondary": "#c0c1ff",
-                        "error": "#ffb4ab",
-                        "on-surface": "#e5e2e3",
-                        "tertiary-container": "#001317",
-                        "tertiary-fixed": "#a2eeff",
-                        "on-error": "#690005",
-                        "on-tertiary-container": "#00899c",
-                        "on-primary-fixed-variant": "#414658",
-                        "accent-purple": "#A855F7",
-                        "surface-container-high": "#2a2a2b",
-                        "secondary-fixed": "#e1e0ff",
-                        "on-surface-variant": "#c7c6cd",
-                        "inverse-on-surface": "#313032"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "container-padding": "24px",
-                        "unit": "8px",
-                        "stack-lg": "32px",
-                        "stack-sm": "8px",
-                        "gutter": "16px",
-                        "stack-md": "16px"
-                    },
-                    "fontFamily": {
-                        "headline-lg": ["'Hanken Grotesk'", "sans-serif"],
-                        "headline-lg-mobile": ["'Hanken Grotesk'", "sans-serif"],
-                        "body-lg": ["'Inter'", "sans-serif"],
-                        "display-lg": ["'Hanken Grotesk'", "sans-serif"],
-                        "label-sm": ["'JetBrains Mono'", "monospace"],
-                        "headline-md": ["'Hanken Grotesk'", "sans-serif"],
-                        "body-md": ["'Inter'", "sans-serif"]
-                    },
-                    "fontSize": {
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'] },
+                    colors: {
+                        drift: {
+                            dark: '#0B1020', card: '#111827', border: '#1F2937',
+                            blue: '#38BDF8', purple: '#A855F7', cyan: '#06B6D4', textMuted: '#9CA3AF'
+                        }
                     }
-                },
-            },
+                }
+            }
         }
     </script>
     <style>
-        body {
-            background-color: #0B1020;
-            color: #e5e2e3;
-            overflow-x: hidden;
-            min-height: 100dvh;
+        body { background-color: #0B1020; color: #F3F4F6; }
+        .glow-effect { position: relative; }
+        .glow-effect::after {
+            content: ''; position: absolute; inset: 0; border-radius: inherit;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); opacity: 0;
+            transition: opacity 0.3s ease; z-index: -1;
         }
-        .glass-panel {
-            background: rgba(17, 24, 39, 0.4);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glow-cyan {
-            box-shadow: 0 0 40px -10px rgba(34, 211, 238, 0.2);
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .hero-gradient {
-            background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.08) 0%, rgba(11, 16, 32, 0) 70%);
-        }
-        /* Ring score kustom sesuai referensi image_30a837.png */
-        .energy-ring {
-            background: conic-gradient(from 220deg at 50% 50%, #22D3EE 0deg, #60A5FA 120deg, #A855F7 240deg, transparent 300deg, transparent 360deg);
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #fff calc(100% - 13px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #fff calc(100% - 13px));
-            border-radius: 50%;
-            filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.6));
-        }
-        .curved-line {
-            stroke: rgba(34, 211, 238, 0.2);
-            stroke-width: 1.5;
-            fill: none;
-            stroke-dasharray: 5, 5;
-            animation: dash 60s linear infinite;
-        }
-        @keyframes dash {
-            to { stroke-dashoffset: -1000; }
-        }
-        .pulse-wave {
-            animation: pulse-wave 4s ease-in-out infinite;
-        }
-        @keyframes pulse-wave {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.08); opacity: 0.4; }
-        }
-        .scroll-trigger-path {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            transition: stroke-dashoffset 2s ease-out;
-        }
-        .scroll-trigger-path.active {
-            stroke-dashoffset: 0;
-        }
+        .glow-effect:hover::after { opacity: 1; }
     </style>
 </head>
-<body class="font-body-md selection:bg-energy-high selection:text-surface-deep">
-    
-    <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/60 border-b border-white/10 h-20 transition-all duration-300">
-        <div class="flex justify-between items-center max-w-[1200px] mx-auto px-container-padding h-full">
+<body class="antialiased selection:bg-drift-blue/30 selection:text-white">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B1020]/85 backdrop-blur-md border-b border-drift-border/50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-energy-high text-headline-md">waves</span>
-                <span class="text-headline-md font-headline-md tracking-tight text-on-surface">Drift</span>
+                <svg class="w-6 h-6 text-drift-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm-4-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm2-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z" fill="currentColor" fill-opacity="0.15"/>
+                    <path d="M12 4C7.58 4 4 7.58 4 12C4 13.31 4.32 14.55 4.88 15.64L19.12 6.36C18.05 4.93 16.14 4 12 4Z" fill="currentColor"/>
+                </svg>
+                <span class="font-semibold text-lg tracking-wide bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Drift</span>
             </div>
-            <div class="hidden md:flex items-center gap-8">
-                <a class="text-accent-cyan font-semibold hover:text-energy-high transition-colors" href="#">Home</a>
-                <a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors" href="#narrative">Fitur</a>
-                <a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors" href="#forecast">Analisis</a>
-                <a class="px-6 py-2 rounded-full glass-panel text-on-surface hover:bg-white/5 transition-all" href="dashboard.html">Akses Awal</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#problem" class="hover:text-white transition-colors">The Problem</a>
+                <a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a>
+                <a href="#showcase" class="hover:text-white transition-colors">Daily Forecast</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="dashboard.html" class="hidden md:inline-flex items-center gap-1.5 text-sm text-drift-blue font-medium hover:text-white transition-colors">
+                    Launch App
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#waitlist" class="inline-flex items-center justify-center px-4 h-9 text-xs font-semibold tracking-wider uppercase text-drift-dark bg-gradient-to-r from-drift-blue to-drift-cyan rounded-full hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all duration-300">
+                    Join Waitlist
+                </a>
             </div>
-            <button class="md:hidden text-on-surface">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
         </div>
-    </nav>
+    </header>
 
-    <main class="pt-20">
-        <!-- Hero Section -->
-        <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-container-padding">
-            <div class="absolute inset-0 hero-gradient"></div>
-            <div class="relative z-10 max-w-[900px] text-center">
-                <span class="font-label-sm text-label-sm uppercase tracking-widest text-accent-cyan mb-6 block reveal active">Asisten Energi Digitalmu</span>
-                <h1 class="font-display-lg text-display-lg md:text-[64px] leading-tight mb-8 reveal active" style="transition-delay: 100ms;">
-                    Selesaikan tugas hari ini tanpa tumbang karena <span class="text-energy-high italic">burnout</span> besok.
-                </h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mx-auto mb-12 reveal active" style="transition-delay: 200ms;">Drift memetakan pola fokus dan energi harianmu untuk memprediksi kelelahan mental sebelum rasa malas dan jenuh menyerang.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 reveal active" style="transition-delay: 300ms;">
-    <!-- SEBELUMNYA BUTTON, SEKARANG UDAH JADI LINK A -->
-    <a href="dashboard.html" class="w-full sm:w-auto text-center px-10 py-4 rounded-full bg-energy-high text-surface-deep font-semibold shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:scale-105 transition-transform">
-        Coba Gratis
-    </a>
-    <button class="w-full sm:w-auto px-10 py-4 rounded-full glass-panel text-on-surface border border-white/10 hover:bg-white/5 transition-all">
-        Pelajari Sistem AI
-    </button>
-</div>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-drift-blue/10 to-drift-purple/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-drift-card/80 border border-drift-border text-xs text-drift-blue mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-drift-cyan animate-pulse"></span>
+                AI-Powered Wellness Intelligence
             </div>
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
-                <span class="material-symbols-outlined">keyboard_double_arrow_down</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white mb-6 leading-[1.15]">
+                Know your best hours <br class="hidden sm:inline">
+                <span class="font-semibold bg-gradient-to-r from-drift-blue via-drift-cyan to-drift-purple bg-clip-text text-transparent">before they happen</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Drift translates sleep, recovery, and daily patterns into actionable insights. Anticipate energy peaks, mitigate stress risks, and align your deep work.
+            </p>
+            <form action="#waitlist-success" id="hero-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 p-2 rounded-2xl bg-drift-card/90 border border-drift-border/80 shadow-2xl mb-6">
+                <input type="email" placeholder="Enter your email address" required class="flex-1 bg-transparent px-4 py-3 text-sm text-white placeholder-slate-500 rounded-xl focus:outline-none focus:ring-1 focus:ring-drift-blue/50" />
+                <button type="submit" class="px-6 py-3 text-sm font-semibold text-drift-dark bg-gradient-to-r from-drift-blue to-drift-cyan rounded-xl hover:brightness-110 transition-all whitespace-nowrap">
+                    Reserve Access
+                </button>
+            </form>
+            <p id="hero-success-msg" class="hidden text-sm text-drift-cyan mb-6">Thank you. You've been added to our early access priority list.</p>
+            <!-- Secondary CTA to App -->
+            <div class="mb-10">
+                <a href="dashboard.html" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors group">
+                    <span>Or explore the live dashboard</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
             </div>
-        </section>
+            <div class="flex items-center justify-center gap-8 text-xs text-slate-500 font-light">
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-drift-blue/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    Privacy First Architecture
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-drift-blue/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    No Wearable Required to Start
+                </span>
+            </div>
+        </div>
+    </section>
 
-        <!-- Chapter 1: Tampilan Ring yang Diperbarui -->
-        <section class="relative py-32 overflow-hidden" id="narrative">
-            <div class="max-w-[1200px] mx-auto px-container-padding relative">
-                <div class="grid lg:grid-cols-2 gap-20 items-center">
-                    <div class="reveal">
-                        <span class="font-label-sm text-accent-cyan mb-4 block tracking-widest">CHAPTER 01</span>
-                        <h2 class="font-display-lg text-[40px] md:text-[56px] leading-tight mb-6">Pantau kapasitas aslimu.</h2>
-                        <p class="text-on-surface-variant font-body-lg mb-8 leading-relaxed">Bukan cuma menghitung langkah kaki. Drift memvisualisasikan sisa bahan bakar fokus harianmu saat ini secara *real-time*, mendeteksi kesiapan mental untuk tugas-tugas berat.</p>
-                        <div class="flex items-center gap-4 py-4 px-6 glass-panel rounded-2xl w-fit">
-                            <div class="w-3 h-3 rounded-full bg-energy-high animate-pulse"></div>
-                            <span class="text-energy-high font-semibold">Fokus Berada di Fase Puncak</span>
+    <!-- Problem Section -->
+    <section id="problem" class="py-20 border-t border-drift-border/40 bg-gradient-to-b from-[#0B1020] to-[#0A0D18]">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold tracking-wider text-drift-blue uppercase mb-3">The Tracking Paradox</h2>
+                <h3 class="text-2xl sm:text-3xl font-light text-white">We are drowning in data, but starved for guidance.</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                <div class="p-8 rounded-2xl bg-drift-card/40 border border-drift-border/60 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 mb-6">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                         </div>
+                        <h4 class="text-lg font-medium text-slate-200 mb-3">Typical Wellness Trackers</h4>
+                        <p class="text-sm text-slate-400 font-light leading-relaxed mb-6">They tell you that your sleep score was 68% or your recovery rate is low. But they leave you to figure out how to plan your high-stakes workday around those figures.</p>
                     </div>
-                    
-                    <!-- Sektor Ring Sesuai image_30a837.png -->
-                    <div class="relative flex justify-center items-center py-20 reveal">
-                        <div class="absolute w-[360px] h-[360px] border border-white/5 rounded-full pulse-wave"></div>
-                        <div class="absolute w-[290px] h-[290px] border border-white/5 rounded-full pulse-wave" style="animation-delay: 1s;"></div>
-                        
-                        <!-- Ring Luar Tebal dengan Conic Gradient -->
-                        <div class="absolute w-64 h-64 energy-ring z-0"></div>
-                        
-                        <!-- Konten Tengah Ring -->
-                        <div class="relative z-10 w-[226px] h-[226px] rounded-full bg-[#0B1020] flex flex-col items-center justify-center">
-                            <span class="text-[76px] font-display-lg font-light leading-none text-white tracking-tight">84</span>
-                            <span class="text-[10px] font-mono text-on-surface-variant/70 tracking-widest mt-2 uppercase">Energy Score</span>
-                            <div class="flex items-center gap-1 text-accent-cyan text-xs font-medium mt-4">
-                                <span class="text-[10px]">▲</span>
-                                <span>+6 vs kemarin</span>
-                            </div>
+                    <ul class="space-y-2 text-xs text-slate-500 border-t border-drift-border/50 pt-4">
+                        <li class="flex items-center gap-2">✕ "Your HRV is 42ms."</li>
+                        <li class="flex items-center gap-2">✕ "You got 1.2 hours of deep sleep."</li>
+                        <li class="flex items-center gap-2">✕ Generates data fatigue instead of clarity.</li>
+                    </ul>
+                </div>
+                <div class="p-8 rounded-2xl bg-[#111827]/80 border border-drift-blue/20 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-drift-blue/5 rounded-full blur-2xl"></div>
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-drift-blue/10 flex items-center justify-center text-drift-blue mb-6">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                         </div>
+                        <h4 class="text-lg font-medium text-white mb-3">Drift Wellness Intelligence</h4>
+                        <p class="text-sm text-slate-300 font-light leading-relaxed mb-6">Drift contextually translates your biometric markers into a reliable predictive schedule. You receive quiet, timely guidance on when to push, focus, or step away.</p>
                     </div>
+                    <ul class="space-y-2 text-xs text-drift-blue/80 border-t border-drift-border/50 pt-4">
+                        <li class="flex items-center gap-2">✓ "Your high focus window today: 09:15–11:00."</li>
+                        <li class="flex items-center gap-2">✓ "Energy dip expected at 14:30. Take a recovery walk."</li>
+                        <li class="flex items-center gap-2">✓ Actionable intelligence for real decisions.</li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Koneksi Antar Elemen Desktop -->
-            <div class="max-w-[1200px] mx-auto px-container-padding h-32 hidden lg:block">
-                <svg class="w-full h-full" viewBox="0 0 1000 100">
-                    <path class="curved-line scroll-trigger-path" d="M 750 0 Q 750 100 500 100"></path>
-                </svg>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 border-t border-drift-border/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold tracking-wider text-drift-blue uppercase mb-3">The Protocol</h2>
+                <h3 class="text-2xl sm:text-3xl font-light text-white">How Drift predicts your day</h3>
             </div>
-
-            <!-- Chapter 2: 4 Node yang Diperbaiki Agar Responsif (Bebas Tabrakan absolute) -->
-            <div class="max-w-[1200px] mx-auto px-container-padding mt-20">
-                <div class="text-center mb-16 reveal">
-                    <h3 class="font-headline-lg text-3xl mb-4">4 Pilar Kondisi Harian</h3>
-                    <p class="text-on-surface-variant max-w-xl mx-auto">Gabungan parameter penting untuk mengukur kestabilan performa belajarmu.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="relative p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50">
+                    <div class="absolute top-6 right-6 text-3xl font-extralight text-slate-700 select-none">01</div>
+                    <div class="w-10 h-10 rounded-lg bg-drift-blue/10 flex items-center justify-center text-drift-blue mb-6">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18"/></svg>
+                    </div>
+                    <h4 class="text-base font-medium text-white mb-2">Sync or Log</h4>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">Connect Apple Health, Oura, or Google Fit in one tap. No wearable? Log quick, 3-second daily emotional check-ins to calibrate the prediction model.</p>
                 </div>
-                
-                <!-- Menggunakan layout fleksibel: grid di HP/Tablet, absolute terkontrol di Layar Besar (lg) -->
-                <div class="relative min-h-auto lg:min-h-[550px] grid grid-cols-1 md:grid-cols-2 lg:block gap-6">
-                    
-                    <!-- Central Hub: Hanya tampil di tengah pas layar besar, di mobile menyesuaikan paling atas -->
-                    <div class="order-first col-span-1 md:col-span-2 mx-auto lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 w-44 h-44 glass-panel rounded-full flex flex-col items-center justify-center z-20 border-white/20 reveal mb-4 lg:mb-0">
-                        <span class="material-symbols-outlined text-energy-mid text-4xl mb-2">auto_graph</span>
-                        <span class="text-label-sm text-center px-4 leading-tight">Evaluasi<br/>Kondisi</span>
+                <div class="relative p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50">
+                    <div class="absolute top-6 right-6 text-3xl font-extralight text-slate-700 select-none">02</div>
+                    <div class="w-10 h-10 rounded-lg bg-drift-purple/10 flex items-center justify-center text-drift-purple mb-6">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-
-                    <!-- Node 1: Sleep -->
-                    <div class="lg:absolute lg:left-[5%] lg:top-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-accent-blue/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-accent-blue text-xl">dark_mode</span>
-                            </div>
-                            <h4 class="font-headline-md text-lg">Kualitas Tidur</h4>
-                        </div>
-                        <p class="text-sm text-on-surface-variant">Mengukur efisiensi pemulihan sel otak, bukan cuma durasi jam tidur.</p>
+                    <h4 class="text-base font-medium text-white mb-2">Map the Energy Curve</h4>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">Drift's neural network models your circadian rhythm, historic sleep quality, and physiological markers to forecast your focus and recovery capacity.</p>
+                </div>
+                <div class="relative p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50">
+                    <div class="absolute top-6 right-6 text-3xl font-extralight text-slate-700 select-none">03</div>
+                    <div class="w-10 h-10 rounded-lg bg-drift-cyan/10 flex items-center justify-center text-drift-cyan mb-6">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
                     </div>
-
-                    <!-- Node 2: Energy -->
-                    <div class="lg:absolute lg:right-[5%] lg:top-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal" style="transition-delay: 100ms;">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-energy-high/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-energy-high text-xl">bolt</span>
-                            </div>
-                            <h4 class="font-headline-md text-lg">Cadangan Energi</h4>
-                        </div>
-                        <p class="text-sm text-on-surface-variant">Bahan bakar siap pakai untuk fokus mengejar tenggat materi sulit.</p>
-                    </div>
-
-                    <!-- Node 3: Stress -->
-                    <div class="lg:absolute lg:left-[5%] lg:bottom-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal" style="transition-delay: 200ms;">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-energy-low/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-energy-low text-xl">pulmonology</span>
-                            </div>
-                            <h4 class="font-headline-md text-lg">Beban Mental</h4>
-                        </div>
-                        <p class="text-sm text-on-surface-variant">Tekanan psikologis harian akibat kelelahan tugas atau kurang istirahat.</p>
-                    </div>
-
-                    <!-- Node 4: Focus -->
-                    <div class="lg:absolute lg:right-[5%] lg:bottom-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal" style="transition-delay: 300ms;">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-energy-mid/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-energy-mid text-xl">center_focus_strong</span>
-                            </div>
-                            <h4 class="font-headline-md text-lg">Ketahanan Fokus</h4>
-                        </div>
-                        <p class="text-sm text-on-surface-variant">Kapasitas otak untuk diajak berpikir mendalam tanpa distraksi gawai.</p>
-                    </div>
-
-                    <!-- Garis Penghubung SVG (Hanya aktif di Desktop agar tidak merusak mobile layout) -->
-                    <svg class="absolute inset-0 w-full h-full -z-10 hidden lg:block" viewBox="0 0 1000 550">
-                        <path class="curved-line" d="M 250 100 Q 500 100 500 275"></path>
-                        <path class="curved-line" d="M 750 100 Q 500 100 500 275"></path>
-                        <path class="curved-line" d="M 250 450 Q 500 450 500 275"></path>
-                        <path class="curved-line" d="M 750 450 Q 500 450 500 275"></path>
-                    </svg>
+                    <h4 class="text-base font-medium text-white mb-2">Quiet Recommendations</h4>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">Get subtle, well-timed prompts advising you of high-focus windows, impending energy slumps, and optimal times to prioritize creative and recovery blocks.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="max-w-[1200px] mx-auto px-container-padding h-32 hidden lg:block">
-                <svg class="w-full h-full" viewBox="0 0 1000 100">
-                    <path class="curved-line scroll-trigger-path" d="M 500 0 Q 500 100 250 100"></path>
-                </svg>
-            </div>
-
-            <!-- Bagian Proses Pendeteksian AI -->
-            <div class="max-w-[1200px] mx-auto px-container-padding mt-20">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div class="order-2 lg:order-1 relative p-6 md:p-12 glass-panel rounded-[40px] border-white/5 reveal">
-                        <div class="grid grid-cols-3 gap-4 mb-8">
-                            <div class="h-1 w-full bg-energy-high/40 rounded"></div>
-                            <div class="h-1 w-full bg-energy-high/40 rounded"></div>
-                            <div class="h-1 w-full bg-white/10 rounded"></div>
-                        </div>
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
-                                <div class="w-8 h-8 rounded-full bg-accent-cyan/20 flex items-center justify-center text-accent-cyan text-xs font-mono">01</div>
-                                <span class="text-sm font-medium">Membaca data aktivitas belajar...</span>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/10 p-4 rounded-xl border border-energy-high/20">
-                                <div class="w-8 h-8 rounded-full bg-energy-high/20 flex items-center justify-center text-energy-high text-xs font-mono">02</div>
-                                <span class="text-sm font-medium">Menganalisis tanda kejenuhan mental...</span>
-                                <span class="ml-auto material-symbols-outlined text-energy-high animate-spin text-sm">settings_b_roll</span>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10 opacity-50">
-                                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-mono">03</div>
-                                <span class="text-sm font-medium">Menghitung rincian jadwal pemulihan...</span>
-                            </div>
-                        </div>
-                        <div class="mt-10 pt-10 border-t border-white/5 flex justify-between items-end">
+    <!-- Daily Forecast Showcase -->
+    <section id="showcase" class="py-20 border-t border-drift-border/40 bg-gradient-to-b from-[#0A0D18] to-[#0B1020]">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-drift-blue/10 border border-drift-blue/20 text-xs text-drift-blue">Daily Forecast</div>
+                    <h3 class="text-3xl font-light leading-tight text-white">Your personal energy arc, visualized.</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Rather than checking metrics constantly, look at a unified timeline mapping your cognitive availability. Drift anticipates exactly how your energy rises and declines over 24 hours.</p>
+                    <div class="space-y-4 pt-4 border-t border-drift-border/50">
+                        <div class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-drift-blue mt-1.5"></span>
                             <div>
-                                <p class="text-label-sm text-on-surface-variant uppercase mb-1">Kecepatan AI</p>
-                                <p class="text-xl font-headline-md">14ms</p>
+                                <h5 class="text-sm font-medium text-white">Focus Hotspots</h5>
+                                <p class="text-xs text-slate-400 font-light">Identify deep work zones to schedule tasks that demand high concentration.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-drift-purple mt-1.5"></span>
+                            <div>
+                                <h5 class="text-sm font-medium text-white">Strategic Off-ramps</h5>
+                                <p class="text-xs text-slate-400 font-light">See ahead to notice expected afternoon energy dips, planning recovery breaks before fatigue sets in.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="dashboard.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-drift-blue/30 text-drift-blue text-xs font-medium hover:bg-drift-blue/10 transition-colors">
+                        Open Dashboard →
+                    </a>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="p-6 md:p-8 rounded-2xl bg-drift-card border border-drift-border/80 shadow-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-drift-border/60 pb-4 mb-6">
+                            <div>
+                                <p class="text-[10px] tracking-wider uppercase text-slate-500 font-semibold">Today's Projection</p>
+                                <p class="text-xs text-slate-400 font-light">Calibrated 15m ago</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-label-sm text-on-surface-variant uppercase mb-1">Akurasi Prediksi</p>
-                                <p class="text-xl font-headline-md text-energy-high">99.4%</p>
+                                <p class="text-[10px] tracking-wider uppercase text-slate-500 font-semibold">Energy Score</p>
+                                <span class="text-sm font-semibold text-drift-blue">84 / 100</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="order-1 lg:order-2 reveal">
-                        <span class="font-label-sm text-accent-cyan mb-4 block tracking-widest">CHAPTER 02</span>
-                        <h2 class="font-display-lg text-[40px] md:text-[56px] leading-tight mb-6">Deteksi dini sebelum lelah mendalam.</h2>
-                        <p class="text-on-surface-variant font-body-lg mb-8 leading-relaxed">Sistem kecerdasan buatan Drift mengenali kebiasaan unikmu secara personal. AI ini bisa membedakan kapan kamu sedang produktif mengejar target kerja dan kapan kamu sedang memaksa otak melewati ambang batas amannya.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="max-w-[1200px] mx-auto px-container-padding h-48 hidden lg:block">
-                <svg class="w-full h-full" viewBox="0 0 1000 200">
-                    <path class="curved-line scroll-trigger-path" d="M 250 0 Q 250 200 500 200"></path>
-                </svg>
-            </div>
-        </section>
-
-        <!-- Chapter 3: Grafik Prakiraan - Mengubah HRV Volatility ke Istilah Sederhana -->
-        <section class="py-32 bg-surface-container-lowest/30 relative" id="forecast">
-            <div class="max-w-[1200px] mx-auto px-container-padding">
-                <div class="text-center mb-24 reveal">
-                    <span class="font-label-sm text-energy-mid mb-4 block tracking-widest uppercase">Chapter 03: Prediksi Masa Depan</span>
-                    <h2 class="font-display-lg text-[40px] md:text-[56px] mb-6">Ambil kendali penuh.</h2>
-                    <p class="text-on-surface-variant max-w-2xl mx-auto font-body-lg">Tanpa penyesuaian jadwal, grafik energi belajarmu diprediksi menurun drastis. Antisipasi kemerosotan motivasi sebelum terjadi.</p>
-                </div>
-                
-                <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-                    <!-- Grafik Tren -->
-                    <div class="lg:col-span-8 glass-panel rounded-[32px] p-6 md:p-12 reveal">
-                        <div class="flex justify-between items-start mb-12">
-                            <div>
-                                <h4 class="text-headline-md mb-2">Proyeksi Energi 14 Hari</h4>
-                                <p class="text-on-surface-variant text-sm">Prediksi penurunan performa berdasarkan rasio stres harianmu.</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <div class="px-3 py-1 rounded-full bg-white/5 text-[10px] uppercase font-mono tracking-tighter">Normal</div>
-                                <div class="px-3 py-1 rounded-full bg-energy-low/20 text-energy-low text-[10px] uppercase font-mono tracking-tighter border border-energy-low/30">Risiko Jenuh</div>
-                            </div>
-                        </div>
-                        <div class="relative h-[300px] w-full mt-10">
-                            <div class="absolute inset-0 grid grid-rows-4 gap-0">
-                                <div class="border-t border-white/5 w-full"></div>
-                                <div class="border-t border-white/5 w-full"></div>
-                                <div class="border-t border-white/5 w-full"></div>
-                                <div class="border-t border-white/5 w-full"></div>
-                            </div>
-                            <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 800 300">
-                                <path d="M 0 50 Q 200 60 400 45 T 800 55" fill="none" stroke="rgba(34, 211, 238, 0.1)" stroke-width="2"></path>
-                                <path class="scroll-trigger-path active" d="M 0 50 Q 200 40 400 120 T 800 280" fill="none" stroke="#A855F7" stroke-width="4" style="filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));"></path>
-                                <circle cx="0" cy="50" fill="#22D3EE" r="6"></circle>
-                                <circle cx="800" cy="280" fill="#F43F5E" r="6"></circle>
-                            </svg>
-                            <div class="absolute left-0 top-2 -translate-y-full text-[10px] font-mono text-on-surface-variant uppercase">Hari Ini (84)</div>
-                            <div class="absolute right-0 bottom-2 translate-y-full text-[10px] font-mono text-energy-low uppercase">Hari ke-14 (61)</div>
-                            <div class="absolute right-0 bottom-0 top-[60%] w-1/3 bg-gradient-to-l from-energy-low/10 to-transparent"></div>
-                        </div>
-                        
-                        <!-- Statistik Pengukur (HRV diubah ke Istilah Ramah Pengguna) -->
-                        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-                            <div>
-                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Fokus Produktif Maksimal</p>
-                                <p class="text-2xl font-display-lg text-energy-high">04:30<span class="text-xs ml-1">jam</span></p>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Stabilitas Berpikir</p>
-                                <p class="text-2xl font-display-lg text-energy-mid">-24%</p>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Tingkat Stres Fisik</p>
-                                <p class="text-2xl font-display-lg text-energy-low">+42%</p>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Hutang Istirahat</p>
-                                <p class="text-2xl font-display-lg text-white">2.5<span class="text-xs ml-1">jam</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Rekomendasi Solusi Pintar -->
-                    <div class="lg:col-span-4 flex flex-col gap-8 reveal" style="transition-delay: 200ms;">
-                        <div class="glass-panel rounded-[32px] p-8 flex-1 border-energy-high/10">
-                            <div class="flex items-center gap-3 mb-8">
-                                <span class="material-symbols-outlined text-energy-high">auto_fix_high</span>
-                                <h4 class="text-headline-md text-lg">Saran Pemulihan AI</h4>
-                            </div>
-                            <div class="space-y-6">
-                                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
-                                    <div class="absolute top-0 left-0 h-full w-1 bg-accent-blue"></div>
-                                    <p class="text-xs font-mono text-accent-blue uppercase mb-2">Koreksi Pola Istirahat</p>
-                                    <p class="text-sm font-medium leading-relaxed">Kualitas tidurmu menurun dalam 3 hari terakhir. Coba matikan layar gawai 45 menit lebih awal malam ini.</p>
-                                </div>
-                                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
-                                    <div class="absolute top-0 left-0 h-full w-1 bg-energy-mid"></div>
-                                    <p class="text-xs font-mono text-energy-mid uppercase mb-2">Beban Otak Tinggi</p>
-                                    <p class="text-sm font-medium leading-relaxed">Rabu sore adalah titik energi terendahmu. Disarankan memindahkan sesi belajar berat ke jam 9 pagi.</p>
+                        <div class="space-y-4 relative">
+                            <div class="relative pl-6 border-l-2 border-drift-blue/30 pb-4">
+                                <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-drift-blue ring-4 ring-[#111827]"></div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="text-[10px] font-semibold tracking-wide text-drift-blue uppercase">08:00 – 09:15</span>
+                                        <h4 class="text-xs font-medium text-white mt-0.5">Transition & Setup</h4>
+                                        <p class="text-[11px] text-slate-400 font-light mt-0.5">Energy climbing. Complete administrative routines, clear incoming notifications.</p>
+                                    </div>
+                                    <span class="text-[10px] py-0.5 px-2 rounded-full bg-drift-blue/10 text-drift-blue border border-drift-blue/10">Stable</span>
                                 </div>
                             </div>
-                            <button class="w-full mt-10 py-4 rounded-full bg-white/5 border border-white/10 text-sm font-semibold hover:bg-white/10 transition-all">
-                                Buka Rincian Lengkap Timeline
-                            </button>
-                        </div>
-                        <div class="glass-panel rounded-[32px] p-8 bg-energy-low/5 border-energy-low/20">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <p class="text-[10px] font-mono text-energy-low uppercase tracking-widest">Risiko Kelelahan Jenuh</p>
-                                    <p class="text-[40px] font-display-lg leading-none mt-1">63%</p>
+                            <div class="relative pl-6 border-l-2 border-drift-cyan/30 pb-4">
+                                <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-drift-cyan ring-4 ring-[#111827]"></div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="text-[10px] font-semibold tracking-wide text-drift-cyan uppercase">09:15 – 11:30</span>
+                                        <h4 class="text-xs font-medium text-white mt-0.5">Primary Focus Window</h4>
+                                        <p class="text-[11px] text-slate-300 font-medium mt-0.5">Flow state probability is highly elevated. Dedicate to priority deep tasks.</p>
+                                    </div>
+                                    <span class="text-[10px] py-0.5 px-2 rounded-full bg-drift-cyan/15 text-drift-cyan border border-drift-cyan/20 animate-pulse">Peak</span>
                                 </div>
-                                <div class="w-16 h-16 rounded-full border-4 border-energy-low/20 border-t-energy-low animate-spin" style="animation-duration: 3s;"></div>
                             </div>
-                            <p class="text-xs text-on-surface-variant mt-4 italic">Kemungkinan besar konsentrasi belajarmu drop total di pekan depan jika ritme beban kerja tidak dikurangi.</p>
+                            <div class="relative pl-6 border-l-2 border-drift-purple/30 pb-2">
+                                <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-drift-purple ring-4 ring-[#111827]"></div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="text-[10px] font-semibold tracking-wide text-drift-purple uppercase">14:00 – 15:30</span>
+                                        <h4 class="text-xs font-medium text-white mt-0.5">Expected Energy Dip</h4>
+                                        <p class="text-[11px] text-slate-400 font-light mt-0.5">Physiological baseline dropping. Step away or shift to light tasks.</p>
+                                    </div>
+                                    <span class="text-[10px] py-0.5 px-2 rounded-full bg-drift-purple/10 text-drift-purple border border-drift-purple/10">Low</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Form Akses -->
-        <section class="py-32 px-container-padding relative">
-            <div class="absolute inset-0 hero-gradient opacity-30"></div>
-            <div class="max-w-[800px] mx-auto text-center reveal">
-                <h2 class="font-display-lg text-display-lg mb-8">Siap mengoptimalkan performa harianmu?</h2>
-                <p class="text-body-lg text-on-surface-variant mb-12">Kami membuka kuota terbatas untuk pelajar, mahasiswa, dan pekerja kreatif yang ingin mencoba versi beta pertamanya.</p>
-                <form class="flex flex-col sm:flex-row gap-4 max-w-[500px] mx-auto">
-                    <input class="flex-1 bg-surface-elevated border border-white/10 rounded-full px-8 py-4 focus:ring-2 focus:ring-energy-high focus:border-transparent outline-none transition-all text-white" placeholder="Masukkan alamat email kamu" type="email"/>
-                    <button class="bg-energy-high text-surface-deep font-bold px-10 py-4 rounded-full hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all" type="submit">
-                        Daftar Antrean
+    <!-- Wellness Intelligence Showcase -->
+    <section class="py-20 border-t border-drift-border/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="p-6 md:p-8 rounded-2xl bg-drift-card border border-drift-border/80 shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-drift-border/60 pb-4">
+                            <div>
+                                <h4 class="text-xs font-semibold tracking-wider uppercase text-slate-500">Continuous Calibration</h4>
+                                <p class="text-[11px] text-slate-400 font-light">Takes 3 seconds</p>
+                            </div>
+                            <span class="text-[10px] text-drift-blue bg-drift-blue/10 px-2 py-0.5 rounded-full">Refining Model</span>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-sm text-slate-200">How is your current focus?</p>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <button type="button" class="py-2.5 px-4 rounded-xl border border-drift-border bg-drift-card hover:bg-drift-border/30 hover:border-slate-500 transition-all text-xs text-left flex items-center justify-between"><span>😀 Sharp</span><span class="text-[10px] text-slate-500">Optimal</span></button>
+                                <button type="button" class="py-2.5 px-4 rounded-xl border border-drift-border bg-drift-card hover:bg-drift-border/30 hover:border-slate-500 transition-all text-xs text-left flex items-center justify-between"><span>🙂 Stable</span><span class="text-[10px] text-slate-500">Steady</span></button>
+                                <button type="button" class="py-2.5 px-4 rounded-xl border border-drift-border bg-drift-card hover:bg-drift-border/30 hover:border-slate-500 transition-all text-xs text-left flex items-center justify-between"><span>😐 Fatigued</span><span class="text-[10px] text-slate-500">Lacking</span></button>
+                                <button type="button" class="py-2.5 px-4 rounded-xl border border-drift-border bg-drift-card hover:bg-drift-border/30 hover:border-slate-500 transition-all text-xs text-left flex items-center justify-between"><span>😔 Drained</span><span class="text-[10px] text-slate-500">Warning</span></button>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-drift-purple/10 border border-drift-purple/20 text-xs">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-drift-purple"></span>
+                                <span class="font-medium text-slate-200">Habit Insight Detected</span>
+                            </div>
+                            <p class="text-slate-400 font-light leading-relaxed">Over the past 14 days, your elevated screentime after 21:30 correlates with a delayed peak focus window the following morning of roughly 40 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-drift-purple/10 border border-drift-purple/20 text-xs text-drift-purple">Wellness Intelligence</div>
+                    <h3 class="text-3xl font-light leading-tight text-white">Understand your habits without doing the math.</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Drift evaluates passive metrics together with your emotional check-ins to deliver custom insights. Discover subtle behavioral causes behind your brain fog, high-energy days, and creative momentum.</p>
+                    <div class="space-y-4 pt-4 border-t border-drift-border/50">
+                        <div class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-drift-cyan mt-1.5"></span>
+                            <div>
+                                <h5 class="text-sm font-medium text-white">Non-invasive Check-Ins</h5>
+                                <p class="text-xs text-slate-400 font-light">Simple check-ins calibrate recommendations, mapping how your mood interacts with rest.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-drift-purple mt-1.5"></span>
+                            <div>
+                                <h5 class="text-sm font-medium text-white">Habit Impact Analysis</h5>
+                                <p class="text-xs text-slate-400 font-light">Clearly track how factors like late caffeine intake, exercise, or screen time directly affect tomorrow's stamina.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target User Benefits -->
+    <section class="py-20 border-t border-drift-border/40 bg-[#0A0D18]">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold tracking-wider text-drift-blue uppercase mb-3">Designed For</h2>
+                <h3 class="text-2xl sm:text-3xl font-light text-white">Optimized for knowledge performance</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50">
+                    <h4 class="text-base font-semibold text-white mb-2">Creators & Remote Workers</h4>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">Without structural office timelines, managing stamina is key. Drift protects your self-directed hours, letting you map work blocks around physiological focus peaks.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50">
+                    <h4 class="text-base font-semibold text-white mb-2">Founders & Builders</h4>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">When output is tied to cognitive processing limits, pacing is crucial. Anticipate cognitive fatigue before severe burnout impacts strategic decision-making.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50">
+                    <h4 class="text-base font-semibold text-white mb-2">Students & Researchers</h4>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">Structure demanding technical study hours and writing blocks around periods of optimal mental clarity. Maximize assimilation and minimize late-night exhaustion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 border-t border-drift-border/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold tracking-wider text-drift-blue uppercase mb-3">Testimonials</h2>
+                <h3 class="text-2xl sm:text-3xl font-light text-white">What early users are saying</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50 flex flex-col justify-between">
+                    <p class="text-xs text-slate-300 font-light leading-relaxed italic">"I used to track metrics without knowing how to use them. Drift tells me when to focus or walk away. My creative productivity has notably stabilized."</p>
+                    <div class="mt-4 pt-4 border-t border-drift-border/40"><p class="text-xs font-semibold text-white">Elena R.</p><p class="text-[10px] text-slate-500">Independent Creator</p></div>
+                </div>
+                <div class="p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50 flex flex-col justify-between">
+                    <p class="text-xs text-slate-300 font-light leading-relaxed italic">"Knowing when my recovery rate is elevated helped me adjust how I schedule technical dev tasks. It saves me from starting heavy code blocks when drained."</p>
+                    <div class="mt-4 pt-4 border-t border-drift-border/40"><p class="text-xs font-semibold text-white">Marcus T.</p><p class="text-[10px] text-slate-500">Founder & Engineer</p></div>
+                </div>
+                <div class="p-6 rounded-2xl bg-drift-card/40 border border-drift-border/50 flex flex-col justify-between">
+                    <p class="text-xs text-slate-300 font-light leading-relaxed italic">"The daily check-in is remarkably simple. It lets me observe the concrete effects of screen time and caffeine on my studies the following day."</p>
+                    <div class="mt-4 pt-4 border-t border-drift-border/40"><p class="text-xs font-semibold text-white">Sarah K.</p><p class="text-[10px] text-slate-500">PhD Candidate</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 border-t border-drift-border/40 bg-[#0A0D18]">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-semibold tracking-wider text-drift-blue uppercase mb-3">FAQ</h2>
+                <h3 class="text-2xl font-light text-white">Frequently Asked Questions</h3>
+            </div>
+            <div class="space-y-4">
+                <div class="border border-drift-border/60 rounded-xl bg-drift-card/20 overflow-hidden">
+                    <button class="w-full text-left p-5 flex justify-between items-center hover:bg-drift-card/50 transition-colors focus:outline-none" onclick="toggleAccordion(1)">
+                        <span class="text-sm font-medium text-slate-200">Do I need a wearable device to use Drift?</span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                </form>
-                <p class="mt-8 font-label-sm text-on-surface-variant/60">Terbatas hanya untuk 500 pengguna gelombang pertama.</p>
+                    <div id="content-1" class="hidden px-5 pb-5 text-xs text-slate-400 leading-relaxed font-light">No. While Drift can sync with wearables like Apple Watch, Oura, or Garmin via Apple Health and Google Fit, it also functions as a standalone planner. By answering simple mood and energy check-ins, the AI estimates your optimal daily focus curve.</div>
+                </div>
+                <div class="border border-drift-border/60 rounded-xl bg-drift-card/20 overflow-hidden">
+                    <button class="w-full text-left p-5 flex justify-between items-center hover:bg-drift-card/50 transition-colors focus:outline-none" onclick="toggleAccordion(2)">
+                        <span class="text-sm font-medium text-slate-200">How is my personal wellness data protected?</span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="content-2" class="hidden px-5 pb-5 text-xs text-slate-400 leading-relaxed font-light">Drift is built with local and end-to-end data encryption. Your personal health and daily activity data is never shared, sold, or distributed to third parties.</div>
+                </div>
+                <div class="border border-drift-border/60 rounded-xl bg-drift-card/20 overflow-hidden">
+                    <button class="w-full text-left p-5 flex justify-between items-center hover:bg-drift-card/50 transition-colors focus:outline-none" onclick="toggleAccordion(3)">
+                        <span class="text-sm font-medium text-slate-200">How long does it take the AI model to learn?</span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="content-3" class="hidden px-5 pb-5 text-xs text-slate-400 leading-relaxed font-light">You will see basic recommendations on your first day. Within 5 to 7 days of consecutive check-ins or biometric syncing, the forecasting patterns align more closely with your personal biometric profile.</div>
+                </div>
+                <div class="border border-drift-border/60 rounded-xl bg-drift-card/20 overflow-hidden">
+                    <button class="w-full text-left p-5 flex justify-between items-center hover:bg-drift-card/50 transition-colors focus:outline-none" onclick="toggleAccordion(4)">
+                        <span class="text-sm font-medium text-slate-200">How does the Free Plan differ from Premium?</span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="content-4" class="hidden px-5 pb-5 text-xs text-slate-400 leading-relaxed font-light">Our Free Plan includes your Daily Energy Score, basic circadian modeling, and routine emotional check-ins. Premium unlocks deep analytics, sleep trend reports, long-term habit analysis, and advanced predictions.</div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer - Diperbarui agar tidak kadaluwarsa -->
-    <footer class="bg-surface-deep border-t border-white/5 w-full py-16">
-        <div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-container-padding gap-gutter">
-            <div class="flex flex-col items-center md:items-start gap-4">
-                <span class="font-headline-md text-headline-md text-energy-high">Drift</span>
-                <p class="text-on-surface-variant/60 text-body-md text-center md:text-left">© 2026 Drift. Manajemen Energi Pintar untuk Produktivitas.</p>
+    <!-- Final CTA -->
+    <section id="waitlist" class="py-24 border-t border-drift-border/40 relative overflow-hidden">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-drift-blue/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h3 class="text-2xl sm:text-3xl font-light text-white mb-4">Protect your performance.</h3>
+            <p class="text-sm sm:text-base text-slate-400 max-w-md mx-auto font-light leading-relaxed mb-8">Join our waitlist for early access to Drift's upcoming releases and private beta community updates.</p>
+            <form action="#waitlist-success" id="cta-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 p-2 rounded-2xl bg-drift-card border border-drift-border/80 shadow-2xl mb-4">
+                <input type="email" placeholder="Enter your email address" required class="flex-1 bg-transparent px-4 py-3 text-sm text-white placeholder-slate-500 rounded-xl focus:outline-none focus:ring-1 focus:ring-drift-blue/50" />
+                <button type="submit" class="px-6 py-3 text-sm font-semibold text-drift-dark bg-gradient-to-r from-drift-blue to-drift-cyan rounded-xl hover:brightness-110 transition-all whitespace-nowrap">Join Waitlist</button>
+            </form>
+            <p id="cta-success-msg" class="hidden text-sm text-drift-cyan mt-4">Thank you. You've been added to our early access priority list.</p>
+            <div class="mt-6">
+                <a href="dashboard.html" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors group">
+                    <span>Already have access? Open Dashboard</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
             </div>
-            <div class="flex gap-8">
-                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Filosofi</a>
-                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Sistem Sains</a>
-                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Privasi</a>
-                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Kontak</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-drift-border/30 py-12 bg-drift-dark">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-drift-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm-4-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm2-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z" fill="currentColor" fill-opacity="0.15"/>
+                    <path d="M12 4C7.58 4 4 7.58 4 12C4 13.31 4.32 14.55 4.88 15.64L19.12 6.36C18.05 4.93 16.14 4 12 4Z" fill="currentColor"/>
+                </svg>
+                <span class="text-sm font-medium text-slate-300">Drift Wellness Intelligence</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-light md:order-first">&copy; <span id="year"></span> Drift. All rights reserved.</p>
+            <div class="flex gap-6 text-xs text-slate-500">
+                <a href="#" class="hover:text-slate-300 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Terms</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Contact</a>
             </div>
         </div>
     </footer>
 
     <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    const paths = entry.target.querySelectorAll('.scroll-trigger-path');
-                    paths.forEach(path => path.classList.add('active'));
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function handleFormSubmit(formId, successMsgId) {
+            const form = document.getElementById(formId);
+            const msg = document.getElementById(successMsgId);
+            if (form && msg) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); form.reset(); msg.classList.remove('hidden');
+                    setTimeout(() => msg.classList.add('hidden'), 5000);
+                });
+            }
+        }
+        handleFormSubmit('hero-form', 'hero-success-msg');
+        handleFormSubmit('cta-form', 'cta-success-msg');
+        function toggleAccordion(id) {
+            const content = document.getElementById(`content-${id}`);
+            const arrow = document.getElementById(`arrow-${id}`);
+            if (content && arrow) {
+                const isHidden = content.classList.contains('hidden');
+                for (let i = 1; i <= 4; i++) {
+                    const c = document.getElementById(`content-${i}`);
+                    const a = document.getElementById(`arrow-${i}`);
+                    if (c && a) { c.classList.add('hidden'); a.classList.remove('rotate-180'); }
                 }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const nav = document.querySelector('nav');
-            
-            if (currentScroll <= 0) {
-                nav.style.transform = 'translateY(0)';
-                nav.classList.remove('h-16');
-                nav.classList.add('h-20');
-                return;
+                if (isHidden) { content.classList.remove('hidden'); arrow.classList.add('rotate-180'); }
             }
-            
-            if (currentScroll > lastScroll) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-                nav.classList.remove('h-20');
-                nav.classList.add('h-16');
-            }
-            lastScroll = currentScroll;
-        });
+        }
     </script>
 </body>
 </html>

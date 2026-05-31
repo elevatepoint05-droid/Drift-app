@@ -1,453 +1,246 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en" class="scroll-smooth h-full">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Drift Forecast | Intelligent Serenity</title>
-    
-    <!-- Script penjinak warning CDN Tailwind di konsol debug emulator/mobile -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drift — Future Projection & Predictive Forecasting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-        const originalWarn = console.warn;
-        console.warn = function(...args) {
-            if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
-                return; 
-            }
-            originalWarn.apply(console, args);
-        };
-    </script>
-
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "surface-tint": "#c1c5dc",
-                        "on-tertiary": "#00363e",
-                        "on-background": "#e5e2e3",
-                        "on-error": "#690005",
-                        "accent-cyan": "#22D3EE",
-                        "primary": "#c1c5dc",
-                        "on-secondary": "#1000a9",
-                        "on-surface": "#e5e2e3",
-                        "energy-high": "#22D3EE",
-                        "secondary": "#c0c1ff",
-                        "primary-fixed": "#dee1f9",
-                        "accent-blue": "#60A5FA",
-                        "background": "#131315",
-                        "tertiary-fixed-dim": "#2fd9f4",
-                        "on-secondary-fixed-variant": "#2f2ebe",
-                        "surface-container": "#201f21",
-                        "error": "#ffb4ab",
-                        "on-tertiary-fixed": "#001f25",
-                        "on-primary": "#2b3041",
-                        "accent-purple": "#A855F7",
-                        "surface-dim": "#131315",
-                        "on-primary-fixed-variant": "#414658",
-                        "surface": "#131315",
-                        "error-container": "#93000a",
-                        "energy-mid": "#A855F7",
-                        "surface-container-lowest": "#0e0e0f",
-                        "on-primary-fixed": "#161b2b",
-                        "on-secondary-fixed": "#07006c",
-                        "secondary-container": "#3131c0",
-                        "secondary-fixed-dim": "#c0c1ff",
-                        "primary-fixed-dim": "#c1c5dc",
-                        "surface-container-high": "#2a2a2b",
-                        "on-tertiary-container": "#00899c",
-                        "secondary-fixed": "#e1e0ff",
-                        "on-tertiary-fixed-variant": "#004e5a",
-                        "surface-deep": "#0B1020",
-                        "tertiary": "#2fd9f4",
-                        "inverse-surface": "#e5e2e3",
-                        "outline": "#909097",
-                        "tertiary-container": "#001317",
-                        "surface-bright": "#39393a",
-                        "tertiary-fixed": "#a2eeff",
-                        "on-surface-variant": "#c7c6cd",
-                        "outline-variant": "#46464c",
-                        "surface-container-low": "#1c1b1d",
-                        "primary-container": "#0b1020",
-                        "surface-variant": "#353436",
-                        "inverse-on-surface": "#313032",
-                        "energy-low": "#F43F5E",
-                        "on-error-container": "#ffdad6",
-                        "surface-container-highest": "#353436",
-                        "on-secondary-container": "#b0b2ff",
-                        "on-primary-container": "#777c90",
-                        "surface-elevated": "#111827",
-                        "inverse-primary": "#595e71"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "gutter": "16px",
-                        "stack-sm": "8px",
-                        "stack-md": "16px",
-                        "unit": "8px",
-                        "stack-lg": "32px",
-                        "container-padding": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-md": ["'Hanken Grotesk'", "sans-serif"],
-                        "body-lg": ["'Inter'", "sans-serif"],
-                        "display-lg": ["'Hanken Grotesk'", "sans-serif"],
-                        "label-sm": ["'JetBrains Mono'", "monospace"],
-                        "headline-lg": ["'Hanken Grotesk'", "sans-serif"],
-                        "body-md": ["'Inter'", "sans-serif"],
-                        "headline-lg-mobile": ["'Hanken Grotesk'", "sans-serif"]
-                    },
-                    "fontSize": {
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'] },
+                    colors: {
+                        drift: {
+                            dark: '#0B1020', card: '#111827', border: '#1F2937',
+                            blue: '#38BDF8', purple: '#A855F7', cyan: '#06B6D4',
+                            emerald: '#10B981', amber: '#F59E0B', rose: '#F43F5E', textMuted: '#9CA3AF'
+                        }
                     }
-                },
-            },
-        }
-    </script>
-    
-    <style>
-        body {
-            background-color: #0B1020;
-            color: #e5e2e3;
-            -webkit-font-smoothing: antialiased;
-            min-height: max(884px, 100dvh);
-        }
-        .glass-card {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-        }
-        .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-        }
-        .energy-glow-cyan {
-            filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.25));
-        }
-        .energy-glow-purple {
-            filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.25));
-        }
-        .chart-container svg {
-            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.3));
-        }
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B1020;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2a2a2b;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body class="font-body-md overflow-x-hidden pb-24 md:pb-0">
-
-<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/60 border-b border-white/10">
-    <div class="flex justify-between items-center max-w-[1200px] mx-auto px-container-padding h-20">
-        <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-energy-high text-headline-md" style="font-variation-settings: 'FILL' 1;">waves</span>
-            <span class="text-headline-md font-headline-md tracking-tight text-on-surface">Drift</span>
-        </div>
-        <nav class="hidden md:flex items-center gap-8">
-            <a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors duration-300" href="dashboard.html">Dashboard</a>
-            <a class="text-accent-cyan font-semibold transition-colors duration-300" href="#">Forecast</a>
-        </nav>
-        <div class="flex items-center gap-4">
-            <button class="material-symbols-outlined text-on-surface-variant hover:text-energy-high transition-colors">notifications</button>
-            <!-- Premium Avatar Frame -->
-            <a href="profile.html" class="w-10 h-10 rounded-full border border-accent-cyan/30 bg-white/5 backdrop-blur-md flex items-center justify-center overflow-hidden hover:border-accent-cyan/60 transition-colors">
-                <span class="text-accent-cyan font-label-sm text-[14px]">JV</span>
-            </a>
-        </div>
-    </div>
-</header>
-
-<main class="pt-28 pb-32 max-w-[1200px] mx-auto px-container-padding">
-    
-    <section class="mb-stack-lg">
-        <h2 class="font-display-lg text-display-lg md:text-[56px] text-white leading-none tracking-tighter mb-4">Analisis Proyeksi</h2>
-        <p class="text-on-surface-variant max-w-2xl font-body-lg text-body-lg">
-            Prediksi performa berdasarkan pola pergeseran biometrik dan akumulasi beban berpikirmu. Ambil langkah antisipasi sebelum kelelahan melumpuhkan produktivitasmu.
-        </p>
-    </section>
-
-    <section class="glass-card rounded-[2rem] p-6 md:p-8 mb-stack-lg energy-glow-cyan">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-            <div>
-                <h3 class="font-headline-md text-headline-md text-white mb-1">Proyeksi Energi 14 Hari</h3>
-                <p class="font-label-sm text-label-sm text-accent-cyan uppercase tracking-widest font-bold">Akurasi Prediksi AI: 89%</p>
-            </div>
-            <div class="flex flex-wrap gap-2">
-                <span class="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-[11px] font-bold text-accent-cyan border border-accent-cyan/20">
-                    <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span> Ritme Saat Ini
-                </span>
-                <span class="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-[11px] font-bold text-accent-purple border border-accent-purple/20">
-                    <span class="w-2 h-2 rounded-full bg-accent-purple"></span> Rekomendasi AI
-                </span>
-            </div>
-        </div>
-
-        <!-- Interactive SVG Line Chart -->
-        <div class="relative w-full h-[360px] chart-container overflow-hidden">
-            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 360">
-                <!-- Grid Lines -->
-                <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="1000" y1="90" y2="90"></line>
-                <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="1000" y1="180" y2="180"></line>
-                <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="1000" y1="270" y2="270"></line>
-                
-                <!-- Projection Line (Current Path - Cyan/Blue gradient) -->
-                <path d="M0,210 C100,200 200,280 300,260 C400,240 500,120 600,150 C700,170 800,310 900,290 L1000,300" fill="none" stroke="url(#chart-cyan)" stroke-linecap="round" stroke-width="4"></path>
-                
-                <!-- Projection Line (Alternate/Recommended Path - Purple dashed) -->
-                <path d="M0,210 C100,200 200,240 300,180 C400,140 500,70 600,90 C700,80 800,120 900,100 L1000,110" fill="none" stroke="url(#chart-purple)" stroke-dasharray="8 4" stroke-opacity="0.7" stroke-width="3"></path>
-                
-                <!-- Area Gradient Fill Cyan -->
-                <path d="M0,210 C100,200 200,280 300,260 C400,240 500,120 600,150 C700,170 800,310 900,290 L1000,300 V360 H0 Z" fill="url(#chart-fill)" fill-opacity="0.05"></path>
-                
-                <defs>
-                    <linearGradient id="chart-cyan" x1="0%" x2="100%" y1="0%" y2="0%">
-                        <stop offset="0%" style="stop-color:#22D3EE; stop-opacity:1"></stop>
-                        <stop offset="100%" style="stop-color:#60A5FA; stop-opacity:1"></stop>
-                    </linearGradient>
-                    <linearGradient id="chart-purple" x1="0%" x2="100%" y1="0%" y2="0%">
-                        <stop offset="0%" style="stop-color:#A855F7; stop-opacity:1"></stop>
-                        <stop offset="100%" style="stop-color:#2fd9f4; stop-opacity:1"></stop>
-                    </linearGradient>
-                    <linearGradient id="chart-fill" x1="0%" x2="0%" y1="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#22D3EE; stop-opacity:0.4"></stop>
-                        <stop offset="100%" style="stop-color:#22D3EE; stop-opacity:0"></stop>
-                    </linearGradient>
-                </defs>
-                
-                <!-- SVG Interactivity Data Nodes -->
-                <circle cx="300" cy="260" fill="#22D3EE" r="6" class="active-glow"></circle>
-                <circle cx="600" cy="150" fill="#22D3EE" r="6" class="active-glow"></circle>
-                <circle cx="900" cy="290" fill="#22D3EE" r="6" class="active-glow"></circle>
-            </svg>
-
-            <!-- Interactive Premium Tooltip -->
-            <div class="absolute top-12 left-1/2 -translate-x-1/2 glass-card p-4 rounded-2xl border border-accent-cyan/30 pointer-events-none shadow-xl text-center">
-                <p class="font-label-sm text-[10px] text-accent-cyan tracking-wider font-bold uppercase mb-1">Hari ke-7: Titik Jenuh Kritis</p>
-                <p class="font-display-lg text-[24px] text-white">Sisa Energi 42%</p>
-                <p class="text-xs text-on-surface-variant/80 mt-1">Intervensi tidur & istirahat sangat disarankan</p>
-            </div>
-        </div>
-
-        <!-- Timeline Bawah Grafik -->
-        <div class="flex justify-between mt-6 text-on-surface-variant/50 font-label-sm text-[11px] font-bold tracking-widest border-t border-white/5 pt-4 uppercase">
-            <span>Hari Ini</span>
-            <span>Hari ke-4</span>
-            <span>Hari ke-7</span>
-            <span>Hari ke-10</span>
-            <span>Hari ke-14</span>
-        </div>
-    </section>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-stack-lg">
-        <!-- Burnout Risk Card -->
-        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-energy-low">
-            <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase mb-2 font-bold tracking-wider">Risiko Burnout</p>
-            <div class="flex items-end justify-between">
-                <h4 class="font-display-lg text-[36px] text-energy-low leading-none font-bold">63%</h4>
-                <span class="material-symbols-outlined text-energy-low text-3xl" style="font-variation-settings: 'FILL' 1;">warning</span>
-            </div>
-            <p class="text-xs text-on-surface-variant/40 mt-3 font-semibold">+12% dari minggu lalu</p>
-        </div>
-        
-        <!-- Recovery Quality Card -->
-        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-accent-purple">
-            <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase mb-2 font-bold tracking-wider">Kualitas Pemulihan</p>
-            <div class="flex items-end justify-between">
-                <h4 class="font-display-lg text-[36px] text-accent-purple leading-none font-bold">58%</h4>
-                <span class="material-symbols-outlined text-accent-purple text-3xl" style="font-variation-settings: 'FILL' 1;">bedtime</span>
-            </div>
-            <p class="text-xs text-on-surface-variant/40 mt-3 font-semibold">Fase Deep Sleep kurang optimal</p>
-        </div>
-        
-        <!-- Focus Stability Card -->
-        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-accent-cyan">
-            <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase mb-2 font-bold tracking-wider">Stabilitas Fokus</p>
-            <div class="flex items-end justify-between">
-                <h4 class="font-display-lg text-[36px] text-accent-cyan leading-none font-bold">Stabil</h4>
-                <span class="material-symbols-outlined text-accent-cyan text-3xl" style="font-variation-settings: 'FILL' 1;">center_focus_strong</span>
-            </div>
-            <p class="text-xs text-on-surface-variant/40 mt-3 font-semibold">Rata-rata 4 jam deep focus</p>
-        </div>
-        
-        <!-- Stress Volatility Card -->
-        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-energy-mid">
-            <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase mb-2 font-bold tracking-wider">Volatilitas Stres</p>
-            <div class="flex items-end justify-between">
-                <h4 class="font-display-lg text-[36px] text-energy-mid leading-none font-bold">Tinggi</h4>
-                <span class="material-symbols-outlined text-energy-mid text-3xl" style="font-variation-settings: 'FILL' 1;">monitoring</span>
-            </div>
-            <p class="text-xs text-on-surface-variant/40 mt-3 font-semibold">Ritme jantung tidak menentu</p>
-        </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
-        <!-- AI Optimization Engine (2 Columns) -->
-        <div class="lg:col-span-2 glass-card rounded-[2rem] overflow-hidden">
-            <div class="p-6 border-b border-white/5 bg-white/5">
-                <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined text-accent-cyan text-2xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
-                    <h3 class="font-headline-md text-xl text-white">Saran Optimalisasi AI</h3>
-                </div>
-            </div>
-            <div class="p-6 space-y-4">
-                <!-- Advice 1 -->
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-accent-cyan/30 transition-all cursor-pointer">
-                    <div class="w-10 h-10 rounded-xl bg-accent-cyan/10 flex items-center justify-center flex-shrink-0">
-                        <span class="material-symbols-outlined text-accent-cyan">schedule</span>
-                    </div>
-                    <div>
-                        <p class="font-body-md font-bold text-white">Geser waktu deep work ke pukul 09:00 WIB</p>
-                        <p class="text-sm text-on-surface-variant/70 mt-1 leading-relaxed">Fokus berpikirmu memuncak lebih awal berdasarkan pola hormon harian. Menghindari cek email berlebihan di tengah hari akan menghemat sisa energimu sebesar 15%.</p>
-                    </div>
-                    <span class="material-symbols-outlined text-on-surface-variant/60 ml-auto self-center">chevron_right</span>
-                </div>
-                <!-- Advice 2 -->
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-accent-purple/30 transition-all cursor-pointer">
-                    <div class="w-10 h-10 rounded-xl bg-accent-purple/10 flex items-center justify-center flex-shrink-0">
-                        <span class="material-symbols-outlined text-accent-purple">self_care</span>
-                    </div>
-                    <div>
-                        <p class="font-body-md font-bold text-white">Tambah durasi pemulihan sebanyak 45 menit</p>
-                        <p class="text-sm text-on-surface-variant/70 mt-1 leading-relaxed">Rencana perjalanan jenuh mentalmu melonjak tajam pada hari Kamis. Memulai fasa bersantai lebih cepat di malam hari akan menormalkan batas energimu kembali.</p>
-                    </div>
-                    <span class="material-symbols-outlined text-on-surface-variant/60 ml-auto self-center">chevron_right</span>
-                </div>
-                <!-- Advice 3 -->
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-energy-high/30 transition-all cursor-pointer">
-                    <div class="w-10 h-10 rounded-xl bg-energy-high/10 flex items-center justify-center flex-shrink-0">
-                        <span class="material-symbols-outlined text-energy-high">light_mode</span>
-                    </div>
-                    <div>
-                        <p class="font-body-md font-bold text-white">Paparan Cahaya Pagi Selama 10 Menit</p>
-                        <p class="text-sm text-on-surface-variant/70 mt-1 leading-relaxed">Pada jam 08:15 esok hari, carilah cahaya alami luar ruangan. Ini membantu menyeimbangkan metabolisme tidurmu untuk malam nanti.</p>
-                    </div>
-                    <span class="material-symbols-outlined text-on-surface-variant/60 ml-auto self-center">chevron_right</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scenario Modeling (1 Column) -->
-        <div class="glass-card rounded-[2rem] p-6 flex flex-col justify-between">
-            <div>
-                <h3 class="font-headline-md text-xl text-white mb-6">Pemodelan Skenario</h3>
-                <div class="space-y-6">
-                    <!-- Sustainable Growth Scenario -->
-                    <div class="relative pl-6 border-l-2 border-accent-cyan pb-4">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-cyan shadow-[0_0_10px_#22D3EE]"></div>
-                        <p class="font-label-sm text-[10px] text-accent-cyan uppercase mb-1 font-bold tracking-wider">Keseimbangan Stabil</p>
-                        <h4 class="font-body-lg font-bold text-white text-md">Pertumbuhan Berkelanjutan</h4>
-                        <p class="text-sm text-on-surface-variant/70 mt-1">Mempertahankan beban belajar saat ini dibarengi ekstra istirahat 45 menit tiap malam.</p>
-                        <div class="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl border border-white/5 mt-3">
-                            <span class="text-on-surface-variant/60 font-semibold">Tingkat Efisiensi Fokus</span>
-                            <span class="text-accent-cyan font-bold">+4.2 poin</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Burnout Path Scenario -->
-                    <div class="relative pl-6 border-l-2 border-energy-low/30">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-energy-low/50"></div>
-                        <p class="font-label-sm text-[10px] text-energy-low uppercase mb-1 font-bold tracking-wider">Jalur Overwork</p>
-                        <h4 class="font-body-lg font-bold text-white text-md">Penurunan Performa Tajam</h4>
-                        <p class="text-sm text-on-surface-variant/70 mt-1">Terus mengejar target belajar larat malam tanpa mengubah pola rehat mingguan.</p>
-                        <div class="flex items-center justify-between text-xs bg-white/5 p-3 rounded-xl border border-white/5 mt-3">
-                            <span class="text-on-surface-variant/60 font-semibold">Peluang Kelelahan Total</span>
-                            <span class="text-energy-low font-bold">82% (Hari ke-11)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <button class="mt-8 w-full py-4 bg-gradient-to-r from-accent-blue to-accent-cyan rounded-full font-semibold text-surface-deep hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(34,211,238,0.25)]">
-                Terapkan Jalur Optimal AI
-            </button>
-        </div>
-    </div>
-</main>
-
-<footer class="hidden md:block border-t border-white/5 bg-[#070912] py-16">
-    <div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-container-padding gap-8">
-        <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-energy-high text-headline-md" style="font-variation-settings: 'FILL' 1;">waves</span>
-            <span class="text-headline-md font-headline-md tracking-tight text-white">Drift</span>
-        </div>
-        <div class="flex gap-12 text-xs font-bold text-on-surface-variant/40 uppercase tracking-widest">
-            <a class="hover:text-white transition-colors" href="#">Sains</a>
-            <a class="hover:text-white transition-colors" href="#">Privasi</a>
-            <a class="hover:text-white transition-colors" href="#">API Konten</a>
-        </div>
-        <p class="text-on-surface-variant/40 text-xs">© 2026 Drift. Intelligent Serenity.</p>
-    </div>
-</footer>
-
-<div class="md:hidden fixed bottom-6 left-6 right-6 z-50 glass-panel bg-surface/60 border border-white/10 rounded-2xl px-2 py-3 flex justify-around items-center shadow-[0_15px_40px_-10px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
-    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="index.html">
-        <span class="material-symbols-outlined text-2xl">home</span>
-        <span class="font-label-sm text-[9px] tracking-widest">HOME</span>
-    </a>
-    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="dashboard.html">
-        <span class="material-symbols-outlined text-2xl">dashboard</span>
-        <span class="font-label-sm text-[9px] tracking-widest">DASHBOARD</span>
-    </a>
-    <a class="flex flex-col items-center gap-1 text-accent-cyan active-glow relative animate-pulse-soft" href="#">
-        <div class="absolute -top-1 w-1 h-1 bg-accent-cyan rounded-full"></div>
-        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">monitoring</span>
-        <span class="font-label-sm text-[9px] tracking-widest font-bold">FORECAST</span>
-    </a>
-    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="profile.html">
-        <span class="material-symbols-outlined text-2xl">person</span>
-        <span class="font-label-sm text-[9px] tracking-widest">PROFILE</span>
-    </a>
-</div>
-
-<!-- Background Atmospheric Lighting -->
-<div class="fixed top-[-20%] right-[-10%] w-[60%] h-[60%] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-<div class="fixed bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent-purple/3 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-
-<script>
-    // Micro-interactions untuk sentuhan premium pada kartu kaca
-    document.querySelectorAll('.glass-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-4px)';
-        });
-        card.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
-    });
-
-    // Simulasi perubahan data biometrik secara real-time
-    setInterval(() => {
-        const risk = document.querySelector('.text-energy-low');
-        if(risk) {
-            const currentVal = parseInt(risk.innerText);
-            const variation = Math.floor(Math.random() * 3) - 1;
-            // Menjaga pergeseran nilai stabil di kisaran 63%
-            if (Math.abs(currentVal + variation - 63) < 5) {
-                risk.innerText = (currentVal + variation) + '%';
+                }
             }
         }
-    }, 4000);
-</script>
+    </script>
+    <style>
+        body { background-color: #0B1020; color: #F3F4F6; }
+        input[type="range"] { -webkit-appearance: none; appearance: none; background: #1F2937; height: 4px; border-radius: 2px; outline: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #38BDF8; cursor: pointer; transition: transform 0.1s ease; }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    </style>
+</head>
+<body class="antialiased min-h-full flex flex-col justify-between selection:bg-drift-blue/30 selection:text-white">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B1020]/90 backdrop-blur-md border-b border-drift-border/50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo → back to landing -->
+            <a href="index.html" class="flex items-center gap-2">
+                <svg class="w-6 h-6 text-drift-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm-4-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm2-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z" fill="currentColor" fill-opacity="0.15"/>
+                    <path d="M12 4C7.58 4 4 7.58 4 12C4 13.31 4.32 14.55 4.88 15.64L19.12 6.36C18.05 4.93 16.14 4 12 4Z" fill="currentColor"/>
+                </svg>
+                <span class="font-semibold text-base tracking-wide bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Drift</span>
+            </a>
+            <!-- Unified Nav Tabs: Dashboard | Forecast (active) | Profile -->
+            <nav class="flex items-center gap-1 bg-drift-card/80 border border-drift-border p-1 rounded-full text-xs">
+                <a href="dashboard.html" class="px-4 py-1.5 rounded-full text-slate-400 hover:text-white transition-colors">Dashboard</a>
+                <a href="forecast.html" class="px-4 py-1.5 rounded-full bg-drift-blue/10 text-drift-blue font-medium shadow-sm">Forecast</a>
+                <a href="profile.html" class="px-4 py-1.5 rounded-full text-slate-400 hover:text-white transition-colors">Profile</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-drift-purple animate-pulse"></span>
+                <span class="text-xs text-slate-400 font-light hidden sm:inline">Projection Engine Online</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-24 pb-16 max-w-6xl w-full mx-auto px-6 space-y-8">
+        <section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-drift-border/50">
+            <div>
+                <p class="text-xs font-semibold text-drift-purple uppercase tracking-wider">Predictive Modeling</p>
+                <h1 class="text-2xl sm:text-3xl font-light text-white mt-1">Future Performance</h1>
+                <p class="text-xs text-slate-400 font-light mt-1">Stamina projections and cognitive capacity indicators for the next 7 days.</p>
+            </div>
+            <div class="text-xs text-slate-400 font-light">Model: <span class="text-drift-purple">Neural Sync V2</span></div>
+        </section>
+
+        <section class="p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 relative overflow-hidden">
+            <div class="absolute top-0 left-1/3 w-[500px] h-[300px] bg-drift-purple/5 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                <div>
+                    <h3 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">7-Day Energy Trend Projections</h3>
+                    <p class="text-sm text-slate-300 font-light mt-1">Weekly capacity modeling including predicted cumulative stress load</p>
+                </div>
+                <div class="flex items-center gap-4 text-xs text-slate-400">
+                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-drift-blue"></span> Projected Stamina</span>
+                    <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded bg-drift-purple"></span> Stress Threshold</span>
+                </div>
+            </div>
+            <div class="relative w-full h-64 sm:h-80">
+                <svg class="w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="energyCurveGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.3"/>
+                            <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.0"/>
+                        </linearGradient>
+                        <linearGradient id="stressCurveGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#A855F7" stop-opacity="0.15"/>
+                            <stop offset="100%" stop-color="#A855F7" stop-opacity="0.0"/>
+                        </linearGradient>
+                    </defs>
+                    <line x1="0" y1="50" x2="800" y2="50" stroke="#1F2937" stroke-width="1" stroke-dasharray="4,4"/>
+                    <line x1="0" y1="150" x2="800" y2="150" stroke="#1F2937" stroke-width="1" stroke-dasharray="4,4"/>
+                    <line x1="0" y1="250" x2="800" y2="250" stroke="#1F2937" stroke-width="1" stroke-dasharray="4,4"/>
+                    <path d="M 0 180 Q 133 130, 266 220 T 532 100 T 800 160 L 800 300 L 0 300 Z" fill="url(#stressCurveGrad)"/>
+                    <path d="M 0 180 Q 133 130, 266 220 T 532 100 T 800 160" fill="none" stroke="#A855F7" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+                    <path d="M 0 90 Q 133 130, 266 80 T 532 210 T 800 60 L 800 300 L 0 300 Z" fill="url(#energyCurveGrad)"/>
+                    <path id="staminaCurvePath" d="M 0 90 Q 133 130, 266 80 T 532 210 T 800 60" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="399" cy="180" r="6" fill="#0B1020" stroke="#F43F5E" stroke-width="3"/>
+                    <circle cx="665" cy="85" r="6" fill="#0B1020" stroke="#10B981" stroke-width="3"/>
+                </svg>
+                <div class="absolute top-[185px] left-[32%] sm:left-[43%] -translate-x-1/2 p-3 bg-drift-card border border-drift-rose/30 rounded-xl text-[11px] max-w-[180px] shadow-xl pointer-events-none">
+                    <p class="font-semibold text-drift-rose uppercase tracking-wide">Vulnerability Node</p>
+                    <p class="text-slate-300 font-light mt-0.5">Projected stamina drops to <span class="text-white font-medium">50%</span> due to late creative activity on Wed.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-7 gap-2 text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mt-4 border-t border-drift-border/50 pt-4">
+                <span>Mon <span class="text-slate-600 block text-[10px] font-normal">Oct 22</span></span>
+                <span>Tue <span class="text-slate-600 block text-[10px] font-normal">Oct 23</span></span>
+                <span class="text-drift-blue">Wed (Today) <span class="text-drift-blue/70 block text-[10px] font-normal">Oct 24</span></span>
+                <span class="text-drift-rose">Thu <span class="text-drift-rose/70 block text-[10px] font-normal">Oct 25</span></span>
+                <span>Fri <span class="text-slate-600 block text-[10px] font-normal">Oct 26</span></span>
+                <span class="text-drift-emerald">Sat <span class="text-drift-emerald/70 block text-[10px] font-normal">Oct 27</span></span>
+                <span>Sun <span class="text-slate-600 block text-[10px] font-normal">Oct 28</span></span>
+            </div>
+        </section>
+
+        <section class="grid lg:grid-cols-12 gap-8 items-stretch">
+            <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">Interactive Habit Simulator</h3>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">Adjust variables to see how changes affect your projected tomorrow's stamina.</p>
+                </div>
+                <div class="space-y-6 my-6">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-300 font-medium">Predicted Sleep</span>
+                            <span id="sleepLabel" class="text-drift-blue font-semibold">7.5 Hours</span>
+                        </div>
+                        <input type="range" id="sleepSlider" min="5" max="10" step="0.5" value="7.5" class="w-full" oninput="runSimulations()"/>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-300 font-medium">Evening Blue Light</span>
+                            <span id="screenLabel" class="text-drift-purple font-semibold">1.5h late exposure</span>
+                        </div>
+                        <input type="range" id="screenSlider" min="0" max="4" step="0.5" value="1.5" class="w-full" oninput="runSimulations()"/>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-300 font-medium">Caffeine Cutoff Time</span>
+                            <span id="caffeineLabel" class="text-drift-cyan font-semibold">14:00</span>
+                        </div>
+                        <input type="range" id="caffeineSlider" min="12" max="22" step="1" value="14" class="w-full" oninput="runSimulations()"/>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mb-1">Impact Simulation Output</p>
+                    <div class="flex items-baseline gap-2">
+                        <span id="simImpactValue" class="text-xl font-semibold text-drift-emerald">+8% Increase</span>
+                        <span class="text-xs text-slate-400 font-light">in projected readiness score</span>
+                    </div>
+                    <p id="simRecommendation" class="text-[11px] text-slate-400 font-light leading-relaxed mt-1.5">Increasing rest cycles to 7.5 hours stabilizes your core nervous reserves.</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 space-y-6">
+                <div>
+                    <h3 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">3-Day Core Hour Allocation Matrix</h3>
+                    <p class="text-sm text-slate-300 font-light mt-1">Recommended blocks based on rest rhythm projections</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span class="font-medium text-white">Wednesday (Today)</span>
+                            <span class="font-light text-drift-blue">Stable Day &bull; 84 Energy</span>
+                        </div>
+                        <div class="h-6 flex rounded-md overflow-hidden bg-drift-border/30 border border-drift-border text-[10px] text-center text-white select-none">
+                            <div class="bg-drift-blue/10 border-r border-drift-border/50 flex items-center justify-center font-light text-slate-500" style="width: 30%">Transit</div>
+                            <div class="bg-drift-cyan flex items-center justify-center font-medium shadow-inner" style="width: 40%">Peak Focus Window</div>
+                            <div class="bg-drift-purple/20 border-l border-drift-border/50 flex items-center justify-center font-light text-slate-400" style="width: 30%">Rest Drift</div>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span class="font-medium text-white">Thursday</span>
+                            <span class="font-light text-drift-rose">Vulnerable Day &bull; 50 Energy</span>
+                        </div>
+                        <div class="h-6 flex rounded-md overflow-hidden bg-drift-border/30 border border-drift-border text-[10px] text-center text-white select-none">
+                            <div class="bg-drift-blue/10 border-r border-drift-border/50 flex items-center justify-center font-light text-slate-500" style="width: 45%">Low Output Transit</div>
+                            <div class="bg-drift-cyan/70 flex items-center justify-center font-medium" style="width: 20%">Short Focus</div>
+                            <div class="bg-drift-purple/40 border-l border-drift-border/50 flex items-center justify-center font-medium" style="width: 35%">Prolonged Recovery</div>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span class="font-medium text-white">Friday</span>
+                            <span class="font-light text-slate-400">Recovering Day &bull; 65 Energy</span>
+                        </div>
+                        <div class="h-6 flex rounded-md overflow-hidden bg-drift-border/30 border border-drift-border text-[10px] text-center text-white select-none">
+                            <div class="bg-drift-blue/15 border-r border-drift-border/50 flex items-center justify-center font-light text-slate-500" style="width: 35%">Transit</div>
+                            <div class="bg-drift-cyan/80 flex items-center justify-center font-medium" style="width: 30%">Focus Block</div>
+                            <div class="bg-drift-purple/30 border-l border-drift-border/50 flex items-center justify-center font-light text-slate-400" style="width: 35%">Stable Recovery</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl bg-drift-purple/5 border border-drift-purple/10 text-xs">
+                    <div class="flex items-center gap-2 mb-1.5"><span class="w-1.5 h-1.5 rounded-full bg-drift-purple"></span><span class="font-medium text-slate-200">Recommended Calendar Adjustments</span></div>
+                    <p class="text-slate-400 font-light leading-relaxed">To protect your recovery baseline following Wednesday evening's cognitive demands, consider shifting demanding strategic planning scheduled for Thursday afternoon over to your high-capacity focus block on Wednesday morning.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-drift-border/30 py-10 bg-drift-dark mt-auto">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2 text-slate-400">
+                <svg class="w-4 h-4 text-drift-blue" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm-4-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm2-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z" fill="currentColor" fill-opacity="0.15"/><path d="M12 4C7.58 4 4 7.58 4 12C4 13.31 4.32 14.55 4.88 15.64L19.12 6.36C18.05 4.93 16.14 4 12 4Z" fill="currentColor"/></svg>
+                <span class="text-xs font-medium tracking-wide">Drift Platform</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-light">&copy; <span id="year"></span> Drift. Personal wellness intelligence platform.</p>
+            <div class="flex gap-4 text-[11px] text-slate-500 font-light"><span class="text-drift-purple">Ready to optimize tomorrow</span></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function runSimulations() {
+            const sleepVal = parseFloat(document.getElementById('sleepSlider').value);
+            const screenVal = parseFloat(document.getElementById('screenSlider').value);
+            const caffeineVal = parseInt(document.getElementById('caffeineSlider').value);
+            document.getElementById('sleepLabel').textContent = `${sleepVal} Hours`;
+            document.getElementById('screenLabel').textContent = `${screenVal}h late exposure`;
+            const caffeineHour = caffeineVal > 12 ? `${caffeineVal - 12}:00 PM` : `${caffeineVal}:00 AM`;
+            document.getElementById('caffeineLabel').textContent = caffeineHour;
+            let staminaDelta = 0;
+            let recommendationString = "";
+            if (sleepVal >= 8) { staminaDelta += 14; recommendationString += "Adequate sleep levels increase baseline recovery values."; }
+            else if (sleepVal >= 7) { staminaDelta += 5; recommendationString += "Steady rest profile supports standard concentration capacities."; }
+            else { staminaDelta -= 12; recommendationString += "Rest deficit limits recovery and reduces core energy."; }
+            if (screenVal <= 0.5) { staminaDelta += 8; recommendationString += " Minimal evening blue light exposure improves sleep efficiency."; }
+            else if (screenVal >= 2.5) { staminaDelta -= 15; recommendationString += " Excessive late exposure delays deep recovery cycles."; }
+            else { staminaDelta -= 5; }
+            if (caffeineVal <= 13) { staminaDelta += 6; recommendationString += " Early caffeine cutoffs preserve evening sleep architecture."; }
+            else if (caffeineVal >= 17) { staminaDelta -= 10; recommendationString += " Late caffeine intake blocks physiological rest signals."; }
+            const resultElement = document.getElementById('simImpactValue');
+            const recommendationElement = document.getElementById('simRecommendation');
+            if (staminaDelta >= 0) { resultElement.textContent = `+${staminaDelta}% Increase`; resultElement.className = "text-xl font-semibold text-drift-emerald"; }
+            else { resultElement.textContent = `${staminaDelta}% Decrease`; resultElement.className = "text-xl font-semibold text-drift-rose"; }
+            recommendationElement.textContent = recommendationString;
+        }
+        runSimulations();
+    </script>
 </body>
 </html>

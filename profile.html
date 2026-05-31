@@ -1,375 +1,244 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
-<script id="tailwind-config">
-    tailwind.config = {
-        darkMode: "class",
-        theme: {
-            extend: {
-                "colors": {
-                    "surface-tint": "#c1c5dc",
-                    "on-tertiary": "#00363e",
-                    "on-background": "#e5e2e3",
-                    "on-error": "#690005",
-                    "accent-cyan": "#22D3EE",
-                    "primary": "#c1c5dc",
-                    "on-secondary": "#1000a9",
-                    "on-surface": "#e5e2e3",
-                    "energy-high": "#22D3EE",
-                    "secondary": "#c0c1ff",
-                    "primary-fixed": "#dee1f9",
-                    "accent-blue": "#60A5FA",
-                    "background": "#131315",
-                    "tertiary-fixed-dim": "#2fd9f4",
-                    "on-secondary-fixed-variant": "#2f2ebe",
-                    "surface-container": "#201f21",
-                    "error": "#ffb4ab",
-                    "on-tertiary-fixed": "#001f25",
-                    "on-primary": "#2b3041",
-                    "accent-purple": "#A855F7",
-                    "surface-dim": "#131315",
-                    "on-primary-fixed-variant": "#414658",
-                    "surface": "#131315",
-                    "error-container": "#93000a",
-                    "energy-mid": "#A855F7",
-                    "surface-container-lowest": "#0e0e0f",
-                    "on-primary-fixed": "#161b2b",
-                    "on-secondary-fixed": "#07006c",
-                    "secondary-container": "#3131c0",
-                    "secondary-fixed-dim": "#c0c1ff",
-                    "primary-fixed-dim": "#c1c5dc",
-                    "surface-container-high": "#2a2a2b",
-                    "on-tertiary-container": "#00899c",
-                    "secondary-fixed": "#e1e0ff",
-                    "on-tertiary-fixed-variant": "#004e5a",
-                    "surface-deep": "#0B1020",
-                    "tertiary": "#2fd9f4",
-                    "inverse-surface": "#e5e2e3",
-                    "outline": "#909097",
-                    "tertiary-container": "#001317",
-                    "surface-bright": "#39393a",
-                    "tertiary-fixed": "#a2eeff",
-                    "on-surface-variant": "#c7c6cd",
-                    "outline-variant": "#46464c",
-                    "surface-container-low": "#1c1b1d",
-                    "primary-container": "#0b1020",
-                    "surface-variant": "#353436",
-                    "inverse-on-surface": "#313032",
-                    "energy-low": "#F43F5E",
-                    "on-error-container": "#ffdad6",
-                    "surface-container-highest": "#353436",
-                    "on-secondary-container": "#b0b2ff",
-                    "on-primary-container": "#777c90",
-                    "surface-elevated": "#111827",
-                    "inverse-primary": "#595e71"
-                },
-                "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-                },
-                "spacing": {
-                    "gutter": "16px",
-                    "stack-sm": "8px",
-                    "stack-md": "16px",
-                    "unit": "8px",
-                    "stack-lg": "32px",
-                    "container-padding": "24px"
-                },
-                "fontFamily": {
-                    "headline-md": ["'Hanken Grotesk'", "sans-serif"],
-                    "body-lg": ["'Inter'", "sans-serif"],
-                    "display-lg": ["'Hanken Grotesk'", "sans-serif"],
-                    "label-sm": ["'JetBrains Mono'", "monospace"],
-                    "headline-lg": ["'Hanken Grotesk'", "sans-serif"],
-                    "body-md": ["'Inter'", "sans-serif"],
-                    "headline-lg-mobile": ["'Hanken Grotesk'", "sans-serif"]
-                },
-                "fontSize": {
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+<html lang="en" class="scroll-smooth h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drift — Profile & Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'] },
+                    colors: {
+                        drift: {
+                            dark: '#0B1020', card: '#111827', border: '#1F2937',
+                            blue: '#38BDF8', purple: '#A855F7', cyan: '#06B6D4',
+                            emerald: '#10B981', amber: '#F59E0B', rose: '#F43F5E', textMuted: '#9CA3AF'
+                        }
+                    }
                 }
-            },
-        },
-    }
-</script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-card {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .glow-cyan {
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
-        }
-        .glow-purple {
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
-        }
-        body {
-            background-color: #0B1020;
-            color: #e5e2e3;
-        }
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-    </style>
-<title>Drift | Profile &amp; Settings</title>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="font-body-md text-body-md antialiased pb-32">
-<!-- Top App Bar -->
-<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/60 border-b border-white/10 h-20">
-<div class="flex justify-between items-center max-w-[1200px] mx-auto px-container-padding h-full">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-energy-high text-headline-md" style="font-variation-settings: 'FILL' 1;">waves</span>
-<span class="text-headline-md font-headline-md tracking-tight text-on-surface dark:text-on-background">Drift</span>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors duration-300" href="dashboard.html">Dashboard</a>
-<a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors duration-300" href="forecast.html">Forecast</a>
-</nav>
-<div class="flex items-center gap-4">
-<button class="material-symbols-outlined text-on-surface-variant hover:text-energy-high transition-colors hidden md:inline-block">notifications</button>
-<a href="#" class="w-10 h-10 rounded-full border-2 border-accent-cyan ring-2 ring-accent-cyan/30 bg-white/5 backdrop-blur-md flex items-center justify-center overflow-hidden">
-<span class="text-accent-cyan font-label-sm text-[14px]">JV</span>
-</a>
-<button class="md:hidden p-2 hover:bg-white/5 rounded-full transition-colors">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</div>
-</div>
-</header>
-<main class="max-w-[1200px] mx-auto px-container-padding pt-28 space-y-stack-lg">
-<!-- User Profile Summary -->
-<section class="flex flex-col items-center text-center space-y-4">
-<div class="relative">
-<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-accent-cyan p-1 glow-cyan">
-<img alt="User Avatar" class="w-full h-full object-cover rounded-full" data-alt="A professional close-up portrait of a high-achieving creative individual with thoughtful eyes, set against a blurred cinematic background of a modern architectural studio. The lighting is soft and directional, highlighting facial features with a cool cyan undertone. The overall aesthetic is clean, premium, and calm, matching a high-end obsidian and cyan digital design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX3Bp-WWcMA-NNtN2DurtQ_sDgKew6vw8RQFcOCI613j5Lr6yPgGyqzROG0izJZvng5w448307AeKxCdpTQfg6hPLwXbUBbqfeTRpgULAqzL7RQxT-hDDUIBLVfmYVv7w_xTB3J_2vlepXyhrhAx4dP2DLi5D1uUUTsvXB1YPQVQw5O0bfpInnKItaH63d_CfyRXRb3RUuAc6Ka11atOzm5WyAqLjZm9PuTUqsTLMWOy_pMLJ3d_C4149UeECjRBmcPHIakjal8cY"/>
-</div>
-<div class="absolute -bottom-1 -right-1 bg-accent-cyan text-surface-deep px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase">
-                    PRO
-                </div>
-</div>
-<div>
-<h1 class="font-display-lg text-display-lg">Julian Voss</h1>
-<div class="flex items-center justify-center gap-2 mt-1">
-<span class="font-label-sm text-label-sm text-accent-purple bg-accent-purple/10 px-3 py-1 rounded-full">Founder Member</span>
-</div>
-</div>
-</section>
-<!-- Account Section - Premium Card -->
-<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<div class="glass-card p-stack-md rounded-xl space-y-4 glow-purple">
-<div class="flex justify-between items-start">
-<div>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Subscription</p>
-<h3 class="font-headline-md text-headline-md text-accent-purple mt-1">Beta Access</h3>
-</div>
-<span class="material-symbols-outlined text-accent-purple">verified</span>
-</div>
-<p class="text-on-surface-variant text-body-md">Enjoying early access features and priority AI insights. Renewal in 14 days.</p>
-<button class="w-full py-3 bg-surface-bright/20 hover:bg-surface-bright/40 border border-white/10 rounded-full transition-all font-medium">Manage Plan</button>
-</div>
-<div class="glass-card p-stack-md rounded-xl space-y-4">
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Connected Wearables</p>
-<div class="space-y-3">
-<div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-accent-cyan">watch</span>
-<span class="font-medium">Oura Ring Gen 3</span>
-</div>
-<span class="text-label-sm text-energy-high">Active</span>
-</div>
-<div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5 opacity-60">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-on-surface-variant">devices_wearables</span>
-<span class="font-medium">Apple Watch Ultra</span>
-</div>
-<span class="text-label-sm text-on-surface-variant">Disconnected</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Settings List Groups -->
-<section class="space-y-gutter">
-<!-- Group 1 -->
-<div class="space-y-2">
-<h2 class="font-label-sm text-label-sm text-on-surface-variant px-4 uppercase tracking-widest">General</h2>
-<div class="glass-card rounded-xl overflow-hidden divide-y divide-white/5">
-<div class="flex items-center justify-between p-4 hover:bg-white/5 cursor-pointer transition-colors group">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-accent-cyan">person</span>
-<span class="font-body-md">Account Information</span>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-<div class="flex items-center justify-between p-4 hover:bg-white/5 cursor-pointer transition-colors group">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-accent-cyan">notifications_active</span>
-<span class="font-body-md">Notification Preferences</span>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-<div class="flex items-center justify-between p-4 hover:bg-white/5 cursor-pointer transition-colors group">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-accent-cyan">schedule</span>
-<div class="flex flex-col">
-<span class="font-body-md">Daily Check-In Reminder</span>
-<span class="text-label-sm text-on-surface-variant">Set for 08:30 AM</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-<div class="flex items-center justify-between p-4 hover:bg-white/5 cursor-pointer transition-colors group">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-accent-cyan">palette</span>
-<div class="flex flex-col">
-<span class="font-body-md">Appearance</span>
-<span class="text-label-sm text-on-surface-variant">Deep Space (Dark)</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
-</div>
-</div>
-</div>
-<!-- Privacy Section -->
-<div class="space-y-2">
-<h2 class="font-label-sm text-label-sm text-on-surface-variant px-4 uppercase tracking-widest">Privacy &amp; Security</h2>
-<div class="glass-card rounded-xl overflow-hidden divide-y divide-white/5">
-<div class="flex items-center justify-between p-4">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant">security</span>
-<div class="flex flex-col">
-<span class="font-body-md">Biometric Unlock</span>
-<span class="text-label-sm text-on-surface-variant">Use FaceID or Fingerprint</span>
-</div>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-surface-bright rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent-cyan"></div>
-</label>
-</div>
-<div class="flex items-center justify-between p-4">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant">analytics</span>
-<div class="flex flex-col">
-<span class="font-body-md">AI Insights Analysis</span>
-<span class="text-label-sm text-on-surface-variant">Permit processing of wearable data</span>
-</div>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-surface-bright rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent-cyan"></div>
-</label>
-</div>
-<div class="flex items-center justify-between p-4">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant">share</span>
-<div class="flex flex-col">
-<span class="font-body-md">Anonymized Data Sharing</span>
-<span class="text-label-sm text-on-surface-variant">Help improve the Drift engine</span>
-</div>
-</div>
-<label class="relative inline-flex items-center cursor-pointer">
-<input class="sr-only peer" type="checkbox"/>
-<div class="w-11 h-6 bg-surface-bright rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent-cyan"></div>
-</label>
-</div>
-</div>
-</div>
-</section>
-<!-- Log Out Button -->
-<div class="py-stack-md">
-<button class="w-full py-4 text-energy-low font-semibold hover:bg-energy-low/5 rounded-xl border border-energy-low/20 transition-all">
-                Sign Out
-            </button>
-</div>
-</main>
-<!-- Footer (JSON Guided) -->
-<footer class="bg-surface-deep dark:bg-surface-container-lowest w-full py-stack-lg border-t border-white/5">
-<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-container-padding gap-gutter">
-<div class="flex items-center gap-2 mb-4 md:mb-0">
-<span class="font-headline-md text-headline-md text-energy-high">Drift</span>
-<span class="text-body-md text-on-surface-variant">v0.9.2 (Beta)</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant/60 text-center md:text-left">
-                © 2024 Drift. Intelligent Serenity for High Achievers.
-            </p>
-<div class="flex gap-6 mt-4 md:mt-0">
-<a class="text-on-surface-variant hover:text-accent-blue transition-colors" href="#">Philosophy</a>
-<a class="text-on-surface-variant hover:text-accent-blue transition-colors" href="#">Science</a>
-<a class="text-on-surface-variant hover:text-accent-blue transition-colors" href="#">Privacy</a>
-</div>
-</div>
-</footer>
-<!-- Fixed Bottom Nav (Mobile) - Unified Pattern -->
-<div class="md:hidden fixed bottom-6 left-6 right-6 z-50 bg-surface/60 backdrop-blur-2xl border border-white/10 rounded-2xl px-2 py-3 flex justify-around items-center shadow-[0_15px_40px_-10px_rgba(0,0,0,0.8)]">
-    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="index.html">
-        <span class="material-symbols-outlined text-2xl">home</span>
-        <span class="font-label-sm text-[9px] tracking-widest">HOME</span>
-    </a>
-    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="dashboard.html">
-        <span class="material-symbols-outlined text-2xl">dashboard</span>
-        <span class="font-label-sm text-[9px] tracking-widest">DASHBOARD</span>
-    </a>
-    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="forecast.html">
-        <span class="material-symbols-outlined text-2xl">monitoring</span>
-        <span class="font-label-sm text-[9px] tracking-widest">FORECAST</span>
-    </a>
-    <a class="flex flex-col items-center gap-1 text-accent-cyan active-glow relative" href="#">
-        <div class="absolute -top-1 w-1 h-1 bg-accent-cyan rounded-full"></div>
-        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">person</span>
-        <span class="font-label-sm text-[9px] tracking-widest font-bold">PROFILE</span>
-    </a>
-</div>
-<script>
-        // Simple toggle interaction for checkboxes
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const parent = this.closest('.glass-card');
-                if (this.checked) {
-                    parent.classList.add('glow-cyan');
-                    setTimeout(() => parent.classList.remove('glow-cyan'), 1000);
-                }
-            });
-        });
-
-        // Add subtle parallax to avatar on hover
-        const avatarContainer = document.querySelector('.relative');
-        if (avatarContainer) {
-            avatarContainer.addEventListener('mousemove', (e) => {
-                const { left, top, width, height } = avatarContainer.getBoundingClientRect();
-                const x = (e.clientX - left) / width - 0.5;
-                const y = (e.clientY - top) / height - 0.5;
-                avatarContainer.querySelector('img').style.transform = `scale(1.1) translate(${x * 10}px, ${y * 10}px)`;
-            });
-            avatarContainer.addEventListener('mouseleave', () => {
-                avatarContainer.querySelector('img').style.transform = `scale(1) translate(0, 0)`;
-            });
+            }
         }
     </script>
-</body></html>
+    <style>
+        body { background-color: #0B1020; color: #F3F4F6; }
+        .toggle-dot { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
+</head>
+<body class="antialiased min-h-full flex flex-col justify-between selection:bg-drift-blue/30 selection:text-white">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B1020]/90 backdrop-blur-md border-b border-drift-border/50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo → back to landing -->
+            <a href="index.html" class="flex items-center gap-2">
+                <svg class="w-6 h-6 text-drift-blue" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm-4-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm2-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z" fill="currentColor" fill-opacity="0.15"/>
+                    <path d="M12 4C7.58 4 4 7.58 4 12C4 13.31 4.32 14.55 4.88 15.64L19.12 6.36C18.05 4.93 16.14 4 12 4Z" fill="currentColor"/>
+                </svg>
+                <span class="font-semibold text-base tracking-wide bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Drift</span>
+            </a>
+            <!-- Unified Nav Tabs: Dashboard | Forecast | Profile (active) -->
+            <nav class="flex items-center gap-1 bg-drift-card/80 border border-drift-border p-1 rounded-full text-xs">
+                <a href="dashboard.html" class="px-4 py-1.5 rounded-full text-slate-400 hover:text-white transition-colors">Dashboard</a>
+                <a href="forecast.html" class="px-4 py-1.5 rounded-full text-slate-400 hover:text-white transition-colors">Forecast</a>
+                <a href="profile.html" class="px-4 py-1.5 rounded-full bg-drift-blue/10 text-drift-blue font-medium shadow-sm">Profile</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-drift-cyan animate-pulse"></span>
+                <span class="text-xs text-slate-400 font-light hidden sm:inline">Settings Protected</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-24 pb-16 max-w-6xl w-full mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            <nav class="lg:col-span-4 space-y-2 lg:sticky lg:top-24">
+                <div class="p-4 rounded-2xl bg-drift-card border border-drift-border/80 space-y-1">
+                    <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest px-3 mb-3">System Preferences</p>
+                    <button onclick="switchTab('profile')" id="btn-profile" class="tab-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-xs font-medium bg-drift-blue/10 text-drift-blue transition-all">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        <span>Profile & Archetype</span>
+                    </button>
+                    <button onclick="switchTab('integrations')" id="btn-integrations" class="tab-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-xs font-medium text-slate-400 hover:text-white transition-all">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                        <span>Biometric Integrations</span>
+                    </button>
+                    <button onclick="switchTab('preferences')" id="btn-preferences" class="tab-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-xs font-medium text-slate-400 hover:text-white transition-all">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                        <span>Calibration & Focus Limits</span>
+                    </button>
+                    <button onclick="switchTab('privacy')" id="btn-privacy" class="tab-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-xs font-medium text-slate-400 hover:text-white transition-all">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        <span>Cryptographic Privacy</span>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="lg:col-span-8">
+                <section id="pane-profile" class="settings-pane space-y-6">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 flex flex-col sm:flex-row gap-6 items-center">
+                        <div class="relative">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-drift-blue to-drift-purple p-1 shadow-inner">
+                                <div class="w-full h-full rounded-full bg-drift-card flex items-center justify-center">
+                                    <span class="text-xl font-light text-slate-300">CV</span>
+                                </div>
+                            </div>
+                            <span class="absolute bottom-1 right-1 w-4 h-4 bg-drift-emerald border-2 border-drift-card rounded-full"></span>
+                        </div>
+                        <div class="text-center sm:text-left space-y-1">
+                            <h2 class="text-xl font-medium text-white">Christopher Vance</h2>
+                            <p class="text-xs text-slate-400 font-light">Lead Technical Designer &bull; Chicago, IL</p>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-drift-purple/15 text-drift-purple border border-drift-purple/20 text-[10px] font-semibold uppercase tracking-wide mt-2">Late-Peak Chronotype</div>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 space-y-6">
+                        <h3 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Account Information</h3>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="text-[11px] text-slate-500 uppercase tracking-widest font-semibold">First Name</label>
+                                <input type="text" value="Christopher" class="w-full px-4 py-2.5 rounded-xl bg-[#0B1020]/75 border border-drift-border text-xs text-white focus:outline-none focus:ring-1 focus:ring-drift-blue/50"/>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-[11px] text-slate-500 uppercase tracking-widest font-semibold">Last Name</label>
+                                <input type="text" value="Vance" class="w-full px-4 py-2.5 rounded-xl bg-[#0B1020]/75 border border-drift-border text-xs text-white focus:outline-none focus:ring-1 focus:ring-drift-blue/50"/>
+                            </div>
+                            <div class="space-y-1.5 sm:col-span-2">
+                                <label class="text-[11px] text-slate-500 uppercase tracking-widest font-semibold">Primary Address</label>
+                                <input type="email" value="christopher@drift-intelligence.io" class="w-full px-4 py-2.5 rounded-xl bg-[#0B1020]/75 border border-drift-border text-xs text-white focus:outline-none focus:ring-1 focus:ring-drift-blue/50"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="pane-integrations" class="settings-pane hidden space-y-6">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 space-y-6">
+                        <div>
+                            <h3 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Biometric Integrations Hub</h3>
+                            <p class="text-xs text-slate-400 font-light leading-relaxed mt-1">Securely feed historical rest parameters into your predictive forecast models.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-drift-rose/10 flex items-center justify-center text-drift-rose font-semibold text-sm">🍎</div>
+                                    <div><h4 class="text-xs font-semibold text-white">Apple HealthKit</h4><p class="text-[10px] text-drift-emerald">Connected &bull; Synced 12m ago</p></div>
+                                </div>
+                                <button onclick="toggleIntegration('Apple HealthKit', this)" class="px-4 py-1.5 bg-drift-border text-[10px] uppercase tracking-wider font-semibold text-slate-300 rounded-lg hover:bg-drift-border/80 active:scale-95 transition-all">Disconnect</button>
+                            </div>
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-drift-cyan/10 flex items-center justify-center text-drift-cyan font-semibold text-sm">💍</div>
+                                    <div><h4 class="text-xs font-semibold text-white">Oura Ring API</h4><p class="text-[10px] text-drift-emerald">Connected &bull; Synced 1 hour ago</p></div>
+                                </div>
+                                <button onclick="toggleIntegration('Oura Ring API', this)" class="px-4 py-1.5 bg-drift-border text-[10px] uppercase tracking-wider font-semibold text-slate-300 rounded-lg hover:bg-drift-border/80 active:scale-95 transition-all">Disconnect</button>
+                            </div>
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-drift-blue/10 flex items-center justify-center text-drift-blue font-semibold text-sm">🔋</div>
+                                    <div><h4 class="text-xs font-semibold text-white">Garmin Connect</h4><p class="text-[10px] text-slate-500">Unpaired</p></div>
+                                </div>
+                                <button onclick="toggleIntegration('Garmin Connect', this)" class="px-4 py-1.5 bg-drift-blue/20 text-drift-blue text-[10px] uppercase tracking-wider font-semibold rounded-lg hover:bg-drift-blue/30 active:scale-95 transition-all">Connect</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="pane-preferences" class="settings-pane hidden space-y-6">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 space-y-6">
+                        <div>
+                            <h3 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Focus Limits Calibration</h3>
+                            <p class="text-xs text-slate-400 font-light leading-relaxed mt-1">Fine-tune when Drift alerts you to step away and what boundaries form your productive calendar zones.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                                <div><h4 class="text-xs font-semibold text-white">Daily Fatigue Warning</h4><p class="text-[10px] text-slate-500 font-light">Alert when projected stamina descends below 40%.</p></div>
+                                <button onclick="toggleSwitch(this)" class="w-10 h-6 bg-drift-blue rounded-full p-1 transition-colors duration-200 focus:outline-none flex items-center justify-end"><span class="toggle-dot w-4 h-4 bg-white rounded-full shadow-md"></span></button>
+                            </div>
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                                <div><h4 class="text-xs font-semibold text-white">Protect Creative Sleep Windows</h4><p class="text-[10px] text-slate-500 font-light">Warn against organizing heavy cognitive tasks during recovery boundaries.</p></div>
+                                <button onclick="toggleSwitch(this)" class="w-10 h-6 bg-drift-blue rounded-full p-1 transition-colors duration-200 focus:outline-none flex items-center justify-end"><span class="toggle-dot w-4 h-4 bg-white rounded-full shadow-md"></span></button>
+                            </div>
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                                <div><h4 class="text-xs font-semibold text-white">Smart Caffeine Alert Window</h4><p class="text-[10px] text-slate-500 font-light">Identify custom physiological windows when afternoon intake blocks sleep cycles.</p></div>
+                                <button onclick="toggleSwitch(this)" class="w-10 h-6 bg-drift-border rounded-full p-1 transition-colors duration-200 focus:outline-none flex items-center justify-start"><span class="toggle-dot w-4 h-4 bg-white rounded-full shadow-md"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="pane-privacy" class="settings-pane hidden space-y-6">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-drift-card border border-drift-border/80 space-y-6">
+                        <div>
+                            <h3 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Cryptographic Privacy Controls</h3>
+                            <p class="text-xs text-slate-400 font-light leading-relaxed mt-1">You own your physiology. Toggle end-to-end security options to control data footprint bounds.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 rounded-xl bg-[#0B1020]/50 border border-drift-border/60">
+                                <div><h4 class="text-xs font-semibold text-white">Zero-Knowledge Encryption</h4><p class="text-[10px] text-slate-500 font-light">Encrypt physiological variables on-device prior to background synchronization cycles.</p></div>
+                                <button onclick="toggleSwitch(this)" class="w-10 h-6 bg-drift-blue rounded-full p-1 transition-colors duration-200 focus:outline-none flex items-center justify-end"><span class="toggle-dot w-4 h-4 bg-white rounded-full shadow-md"></span></button>
+                            </div>
+                            <div class="p-4 rounded-xl bg-[#0B1020]/30 border border-drift-border/50 text-xs">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-[11px] font-semibold text-slate-400 uppercase">Local Secure Key Signature</span>
+                                    <span class="px-2 py-0.5 rounded-full bg-drift-blue/10 text-drift-blue text-[10px]">Active</span>
+                                </div>
+                                <code class="text-[10px] text-slate-500 block break-all font-mono leading-relaxed">drift_sec_ecc384_pub_84f932f99f9218d09823ae9d8f8e0d9b4b4c4091a0293da</code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-drift-border/30 py-10 bg-drift-dark mt-auto">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2 text-slate-400">
+                <svg class="w-4 h-4 text-drift-blue" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm-4-3c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5zm2-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5z" fill="currentColor" fill-opacity="0.15"/><path d="M12 4C7.58 4 4 7.58 4 12C4 13.31 4.32 14.55 4.88 15.64L19.12 6.36C18.05 4.93 16.14 4 12 4Z" fill="currentColor"/></svg>
+                <span class="text-xs font-medium tracking-wide">Drift Platform</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-light">&copy; <span id="year"></span> Drift. Personal wellness intelligence platform.</p>
+            <div class="flex gap-4 text-[11px] text-slate-500 font-light"><span class="text-drift-cyan">Settings Secure</span></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function switchTab(targetId) {
+            document.querySelectorAll('.settings-pane').forEach(pane => pane.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => { btn.classList.remove('bg-drift-blue/10', 'text-drift-blue'); btn.classList.add('text-slate-400'); });
+            const activePane = document.getElementById(`pane-${targetId}`);
+            const activeBtn = document.getElementById(`btn-${targetId}`);
+            if (activePane && activeBtn) {
+                activePane.classList.remove('hidden');
+                activeBtn.classList.remove('text-slate-400');
+                activeBtn.classList.add('bg-drift-blue/10', 'text-drift-blue');
+            }
+        }
+        function toggleSwitch(btnElement) {
+            if (btnElement.classList.contains('bg-drift-blue')) {
+                btnElement.classList.remove('bg-drift-blue'); btnElement.classList.add('bg-drift-border');
+                btnElement.classList.remove('justify-end'); btnElement.classList.add('justify-start');
+            } else {
+                btnElement.classList.remove('bg-drift-border'); btnElement.classList.add('bg-drift-blue');
+                btnElement.classList.remove('justify-start'); btnElement.classList.add('justify-end');
+            }
+        }
+        function toggleIntegration(serviceName, button) {
+            const labelNode = button.previousElementSibling.querySelector('p');
+            if (button.textContent.toLowerCase() === 'disconnect') {
+                button.textContent = 'Connect'; button.classList.remove('bg-drift-border', 'text-slate-300');
+                button.classList.add('bg-drift-blue/20', 'text-drift-blue');
+                labelNode.textContent = 'Unpaired'; labelNode.className = 'text-[10px] text-slate-500';
+            } else {
+                button.textContent = 'Disconnect'; button.classList.remove('bg-drift-blue/20', 'text-drift-blue');
+                button.classList.add('bg-drift-border', 'text-slate-300');
+                labelNode.textContent = 'Connected • Synced just now'; labelNode.className = 'text-[10px] text-drift-emerald';
+            }
+        }
+    </script>
+</body>
+</html>
