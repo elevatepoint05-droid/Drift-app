@@ -1,0 +1,31 @@
+﻿PROJECT BRIEF : DRIFT
+Drift is an AI-powered burnout early warning system for students, creators, and young professionals.
+Core Idea:
+Drift helps users understand their energy patterns before burnout becomes severe.
+Key Features:
+* Energy Score
+* Burnout Risk
+* Focus Heatmap
+* AI Insights
+* Future Projection
+Design Style:
+* Apple Health inspired
+* Oura Ring inspired
+* Premium dark mode
+* Calm and futuristic
+* Emotionally intelligent
+* Minimal and cinematic
+Colors:
+Background: #0B1020, #111827
+Accent: Soft Blue, Cyan, Soft Purple
+Create only 3 pages:
+1. Landing Page
+2. Dashboard
+3. Future Projection
+Avoid:
+* Generic SaaS dashboards
+* Login pages
+* Admin panels
+* Settings pages
+* Excessive cards
+* Cyberpunk aesthetics

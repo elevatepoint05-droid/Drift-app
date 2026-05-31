@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Drift | Intelligent Serenity</title>
+    
+    <!-- Script penjinak warning CDN Tailwind di konsol debug emulator/mobile -->
+    <script>
+        const originalWarn = console.warn;
+        console.warn = function(...args) {
+            if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+                return; 
+            }
+            originalWarn.apply(console, args);
+        };
+    </script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a2a2b",
+                        "energy-low": "#F43F5E",
+                        "on-background": "#e5e2e3",
+                        "on-error": "#690005",
+                        "surface-tint": "#c1c5dc",
+                        "surface": "#131315",
+                        "surface-elevated": "#111827",
+                        "on-tertiary-fixed": "#001f25",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "accent-cyan": "#22D3EE",
+                        "inverse-surface": "#e5e2e3",
+                        "surface-container-highest": "#353436",
+                        "surface-bright": "#39393a",
+                        "on-primary-fixed-variant": "#414658",
+                        "on-primary-fixed": "#161b2b",
+                        "primary-fixed-dim": "#c1c5dc",
+                        "background": "#131315",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "secondary-fixed": "#e1e0ff",
+                        "inverse-primary": "#595e71",
+                        "on-surface": "#e5e2e3",
+                        "on-secondary-container": "#b0b2ff",
+                        "on-primary-container": "#777c90",
+                        "on-primary": "#2b3041",
+                        "surface-variant": "#353436",
+                        "tertiary": "#2fd9f4",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "accent-purple": "#A855F7",
+                        "accent-blue": "#60A5FA",
+                        "tertiary-fixed": "#a2eeff",
+                        "surface-container": "#201f21",
+                        "surface-deep": "#0B1020",
+                        "tertiary-container": "#001317",
+                        "on-secondary": "#1000a9",
+                        "inverse-on-surface": "#313032",
+                        "primary-container": "#0b1020",
+                        "surface-container-lowest": "#0e0e0f",
+                        "primary": "#c1c5dc",
+                        "outline-variant": "#46464c",
+                        "energy-high": "#22D3EE",
+                        "surface-dim": "#131315",
+                        "on-surface-variant": "#c7c6cd",
+                        "error": "#ffb4ab",
+                        "on-tertiary": "#00363e",
+                        "secondary-container": "#3131c0",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "secondary": "#c0c1ff",
+                        "surface-container-low": "#1c1b1d",
+                        "primary-fixed": "#dee1f9",
+                        "on-tertiary-container": "#00899c",
+                        "error-container": "#93000a",
+                        "outline": "#909097",
+                        "on-secondary-fixed": "#07006c",
+                        "energy-mid": "#A855F7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "container-padding": "24px",
+                        "stack-sm": "8px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["'Hanken Grotesk'", "sans-serif"],
+                        "headline-lg": ["'Hanken Grotesk'", "sans-serif"],
+                        "label-sm": ["'JetBrains Mono'", "monospace"],
+                        "headline-md": ["'Hanken Grotesk'", "sans-serif"],
+                        "headline-lg-mobile": ["'Hanken Grotesk'", "sans-serif"],
+                        "body-lg": ["'Inter'", "sans-serif"],
+                        "body-md": ["'Inter'", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0B1020;
+            color: #e5e2e3;
+            -webkit-font-smoothing: antialiased;
+            min-height: max(884px, 100dvh);
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .glass-panel:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .energy-glow {
+            filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.3));
+        }
+        .active-glow {
+            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.8));
+        }
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-rotate {
+            animation: rotate-slow 10s linear infinite;
+        }
+        @keyframes counter-reveal {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-counter {
+            animation: counter-reveal 0.8s ease-out forwards;
+        }
+        .timeline-progress {
+            background: linear-gradient(to bottom, #22D3EE, #22D3EE 50%, rgba(255,255,255,0.1) 50%);
+            background-size: 100% 200%;
+            background-position: bottom;
+            transition: background-position 1s ease-in-out;
+        }
+        .svg-curve {
+            filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B1020;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2b;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="pb-24">
+
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/60 border-b border-white/10">
+    <div class="flex justify-between items-center max-w-[1200px] mx-auto px-container-padding h-20">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-energy-high text-headline-md" style="font-variation-settings: 'FILL' 1;">waves</span>
+            <span class="text-headline-md font-headline-md tracking-tight text-on-surface dark:text-on-background">Drift</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="hidden md:flex gap-8 mr-8">
+                <a class="text-accent-cyan font-semibold transition-colors duration-300" href="#">Dashboard</a>
+                <a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors duration-300" href="forecast.html">Forecast</a>
+            </div>
+            <!-- JV Avatar -->
+            <a href="profile.html" class="w-10 h-10 rounded-full border border-accent-cyan/30 bg-white/5 backdrop-blur-md flex items-center justify-center overflow-hidden hover:border-accent-cyan/60 transition-colors">
+                <span class="text-accent-cyan font-label-sm text-[14px]">JV</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main class="mt-24 max-w-[1200px] mx-auto px-container-padding">
+
+    <!-- Level 1: Energy Score Hero (Centered - Identitas Utama Dashboard 1) -->
+    <section class="flex flex-col items-center justify-center py-stack-lg relative overflow-hidden">
+        <div class="absolute -z-10 w-64 h-64 bg-accent-cyan/10 blur-[100px] rounded-full"></div>
+        <div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+            <!-- Circular Gauge -->
+            <svg class="absolute w-full h-full -rotate-90 transform" viewbox="0 0 100 100">
+                <circle class="text-white/5" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="6"></circle>
+                <circle class="text-accent-cyan energy-glow transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="264" stroke-dashoffset="31.68" stroke-linecap="round" stroke-width="6" style="transition: stroke-dashoffset 2s cubic-bezier(0.34, 1.56, 0.64, 1);"></circle>
+            </svg>
+            <div class="flex flex-col items-center animate-counter">
+                <span class="font-display-lg text-display-lg md:text-[64px] text-white tracking-tighter">88</span>
+                <span class="font-label-sm text-label-sm text-accent-cyan tracking-[0.2em] mt-2">OPTIMAL PHASE</span>
+            </div>
+            <!-- Orbiting Pulse -->
+            <div class="absolute w-full h-full animate-rotate pointer-events-none">
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 w-2 h-2 bg-accent-cyan rounded-full energy-glow"></div>
+            </div>
+        </div>
+        
+        <!-- Secondary KPI Pills -->
+        <div class="flex flex-col items-center gap-3 mt-8 animate-counter" style="animation-delay: 0.2s">
+            <div class="flex gap-3">
+                <div class="glass-panel px-4 py-2 rounded-full border border-white/10 flex items-center gap-2 shadow-[0_0_10px_rgba(34,211,238,0.1)]">
+                    <span class="font-label-sm text-[10px] text-on-surface-variant">RECOVERY</span>
+                    <span class="font-label-sm text-accent-cyan">92%</span>
+                </div>
+                <div class="glass-panel px-4 py-2 rounded-full border border-white/10 flex items-center gap-2 shadow-[0_0_10px_rgba(34,211,238,0.1)]">
+                    <span class="font-label-sm text-[10px] text-on-surface-variant">FOCUS</span>
+                    <span class="font-label-sm text-accent-cyan">88%</span>
+                </div>
+                <div class="glass-panel px-4 py-2 rounded-full border border-white/10 flex items-center gap-2 shadow-[0_0_10px_rgba(34,211,238,0.1)]">
+                    <span class="font-label-sm text-[10px] text-on-surface-variant">STRESS</span>
+                    <span class="font-label-sm text-energy-low">34%</span>
+                </div>
+            </div>
+            <!-- Expanded Historical KPIs -->
+            <div class="flex gap-2">
+                <div class="bg-white/5 border border-white/5 px-3 py-1 rounded-full flex items-center gap-2">
+                    <span class="font-label-sm text-[9px] text-on-surface-variant/60 uppercase">Yesterday</span>
+                    <span class="font-label-sm text-[11px] text-on-surface">84</span>
+                </div>
+                <div class="bg-white/5 border border-white/5 px-3 py-1 rounded-full flex items-center gap-2">
+                    <span class="font-label-sm text-[9px] text-on-surface-variant/60 uppercase">Weekly Avg</span>
+                    <span class="font-label-sm text-[11px] text-on-surface">86</span>
+                </div>
+                <div class="bg-white/5 border border-white/5 px-3 py-1 rounded-full flex items-center gap-2">
+                    <span class="font-label-sm text-[9px] text-on-surface-variant/60 uppercase">Monthly Avg</span>
+                    <span class="font-label-sm text-[11px] text-on-surface">81</span>
+                </div>
+            </div>
+        </div>
+        <p class="mt-stack-md font-body-lg text-body-lg text-on-surface-variant text-center max-w-md">
+            Your neural recovery is peak. Today is recommended for high-complexity cognitive tasks.
+        </p>
+    </section>
+
+    <!-- Level 1.5: Prakiraan Energi Harian (Daily Forecast Curve - Integrasi image_2fc9f9.png) -->
+    <section class="glass-panel rounded-[2rem] p-8 relative overflow-hidden flex flex-col justify-between h-[360px] mb-8 shadow-2xl">
+        <div class="flex justify-between items-start z-10">
+            <div>
+                <h2 class="text-white font-headline-md text-xl font-bold tracking-tight">Prakiraan Energi Harian</h2>
+                <p class="text-on-surface-variant/60 text-sm mt-1">Prediksi kesiapan metabolisme dan fokus berpikirmu</p>
+            </div>
+            <div class="bg-[#22D3EE]/10 px-3 py-1.5 rounded-full border border-[#22D3EE]/20 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
+                <span class="text-[10px] font-bold text-accent-cyan uppercase tracking-wider">Live Path</span>
+            </div>
+        </div>
+        
+        <!-- Gelombang SVG Curve Sesuai Desain image_2fc9f9.png -->
+        <div class="relative flex-grow mt-6">
+            <svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 160">
+                <defs>
+                    <linearGradient id="cyan-gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+                        <stop offset="0%" style="stop-color:#22D3EE; stop-opacity:0.2"></stop>
+                        <stop offset="30%" style="stop-color:#22D3EE; stop-opacity:1"></stop>
+                        <stop offset="60%" style="stop-color:#22D3EE; stop-opacity:0.6"></stop>
+                        <stop offset="80%" style="stop-color:#A855F7; stop-opacity:0.6"></stop>
+                        <stop offset="100%" style="stop-color:#22D3EE; stop-opacity:0.2"></stop>
+                    </linearGradient>
+                </defs>
+                <!-- Path Line -->
+                <path class="svg-curve" d="M 0 110 Q 180 15, 330 65 T 600 135 T 800 80" fill="none" stroke="url(#cyan-gradient)" stroke-linecap="round" stroke-width="4"></path>
+                
+                <!-- Current Position Marker (Sekarang jam 12:00) -->
+                <g transform="translate(320, 65)">
+                    <circle fill="rgba(34, 211, 238, 0.2)" r="10"></circle>
+                    <circle class="active-glow" fill="#22D3EE" r="5"></circle>
+                    <text class="fill-accent-cyan text-[10px] font-bold font-label-sm uppercase tracking-widest" text-anchor="middle" x="0" y="-18">Sekarang</text>
+                </g>
+                
+                <!-- Label Kunci Gelombang -->
+                <text class="fill-white/30 text-[9px] font-bold font-label-sm uppercase" x="180" y="55">Bangun Pagi</text>
+                <text class="fill-white/30 text-[9px] font-bold font-label-sm uppercase" x="420" y="65">Fokus Puncak</text>
+                <text class="fill-white/30 text-[9px] font-bold font-label-sm uppercase" x="590" y="150">Penurunan Energi</text>
+                <text class="fill-white/30 text-[9px] font-bold font-label-sm uppercase" x="710" y="75">Pemulihan</text>
+            </svg>
+        </div>
+        
+        <!-- Rentang Waktu Bawah Grafik -->
+        <div class="flex justify-between text-[10px] font-bold text-on-surface-variant/40 mt-4 tracking-widest border-t border-white/5 pt-4 uppercase">
+            <span>06:00</span>
+            <span>09:00</span>
+            <span>12:00</span>
+            <span>15:00</span>
+            <span>18:00</span>
+            <span>22:00</span>
+        </div>
+    </section>
+
+    <!-- Level 2: Grid & Detail Informasi -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mt-stack-lg">
+        
+        <!-- Metric Grid (Kolom 1 & 2) -->
+        <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+            <!-- Restorative Sleep -->
+            <div class="glass-panel p-container-padding rounded-xl relative overflow-hidden group">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="font-label-sm text-label-sm font-bold text-white mb-1">RESTORATIVE SLEEP</p>
+                        <h3 class="font-display-lg text-[28px] text-white">8h 12m</h3>
+                    </div>
+                    <div class="flex items-center text-accent-cyan gap-1 bg-accent-cyan/20 border border-accent-cyan/30 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+                        <span class="material-symbols-outlined text-[16px]">trending_up</span>
+                        <span class="font-label-sm text-label-sm font-bold">4%</span>
+                    </div>
+                </div>
+                <div class="h-16 mt-stack-md flex items-end gap-1.5">
+                    <div class="flex-1 bg-white/5 rounded-full h-[20%] group-hover:h-[40%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[45%] group-hover:h-[60%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[30%] group-hover:h-[50%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/10 rounded-full h-[65%] group-hover:h-[75%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-cyan/60 rounded-full h-[85%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-cyan/40 rounded-full h-[70%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-cyan rounded-full h-[95%] transition-all duration-500 active-glow"></div>
+                </div>
+                <p class="mt-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Deep Sleep: 2h 15m</p>
+            </div>
+            
+            <!-- Vibrant Energy -->
+            <div class="glass-panel p-container-padding rounded-xl group">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="font-label-sm text-label-sm font-bold text-white mb-1">VIBRANT ENERGY</p>
+                        <h3 class="font-display-lg text-[28px] text-white">High</h3>
+                    </div>
+                    <div class="flex items-center text-accent-purple gap-1 bg-accent-purple/20 border border-accent-purple/30 px-3 py-1 rounded-full">
+                        <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                        <span class="font-label-sm text-label-sm font-bold">Stable</span>
+                    </div>
+                </div>
+                <div class="h-16 mt-stack-md flex items-end gap-1.5">
+                    <div class="flex-1 bg-white/5 rounded-full h-[60%] group-hover:h-[70%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[65%] group-hover:h-[75%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/10 rounded-full h-[70%] group-hover:h-[80%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-purple/40 rounded-full h-[80%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-purple/60 rounded-full h-[85%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-purple rounded-full h-[90%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-purple/40 rounded-full h-[75%] transition-all duration-500"></div>
+                </div>
+                <p class="mt-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Next Dip: 14:00</p>
+            </div>
+            
+            <!-- Stress Load -->
+            <div class="glass-panel p-container-padding rounded-xl group">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="font-label-sm text-label-sm font-bold text-white mb-1">STRESS LOAD</p>
+                        <h3 class="font-display-lg text-[28px] text-white">Moderate</h3>
+                    </div>
+                    <div class="flex items-center text-energy-low gap-1 bg-energy-low/20 border border-energy-low/30 px-3 py-1 rounded-full">
+                        <span class="material-symbols-outlined text-[16px]">priority_high</span>
+                        <span class="font-label-sm text-label-sm font-bold">+12%</span>
+                    </div>
+                </div>
+                <div class="h-16 mt-stack-md flex items-end gap-1.5">
+                    <div class="flex-1 bg-white/5 rounded-full h-[20%] group-hover:h-[30%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[25%] group-hover:h-[40%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-energy-low/40 rounded-full h-[60%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-energy-low/60 rounded-full h-[75%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-energy-low rounded-full h-[85%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-energy-low/60 rounded-full h-[55%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[30%] group-hover:h-[50%] transition-all duration-500"></div>
+                </div>
+                <p class="mt-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Peak Stress: 10:15 AM</p>
+            </div>
+            
+            <!-- Mental Clarity -->
+            <div class="glass-panel p-container-padding rounded-xl group">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="font-label-sm text-label-sm font-bold text-white mb-1">MENTAL CLARITY</p>
+                        <h3 class="font-display-lg text-[28px] text-white">Sharp</h3>
+                    </div>
+                    <div class="flex items-center text-accent-blue gap-1 bg-accent-blue/20 border border-accent-blue/30 px-3 py-1 rounded-full">
+                        <span class="material-symbols-outlined text-[16px]">psychology</span>
+                        <span class="font-label-sm text-label-sm font-bold">Focused</span>
+                    </div>
+                </div>
+                <div class="h-16 mt-stack-md flex items-end gap-1.5">
+                    <div class="flex-1 bg-accent-blue rounded-full h-[95%] transition-all duration-500 active-glow"></div>
+                    <div class="flex-1 bg-accent-blue/80 rounded-full h-[90%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-blue/60 rounded-full h-[85%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-accent-blue/40 rounded-full h-[80%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[70%] group-hover:h-[85%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[60%] group-hover:h-[75%] transition-all duration-500"></div>
+                    <div class="flex-1 bg-white/5 rounded-full h-[65%] group-hover:h-[75%] transition-all duration-500"></div>
+                </div>
+                <p class="mt-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Flow Probability: 82%</p>
+            </div>
+            
+            <!-- Weekly Recovery Trend Chart -->
+            <div class="md:col-span-2 glass-panel p-container-padding rounded-xl">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-2">
+                    <h3 class="font-headline-md text-headline-md text-white">Weekly Recovery Trend</h3>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col">
+                            <span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Weekly Avg</span>
+                            <span class="font-body-md text-accent-cyan font-bold">90%</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-body-md text-white font-bold">Tue (94%)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-end justify-between h-40 gap-2 md:gap-4 mt-4">
+                    <div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                        <div class="w-full bg-accent-cyan/20 rounded-t-lg transition-all duration-500 group-hover:bg-accent-cyan/40" style="height: 82%"></div>
+                        <span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Mon</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                        <div class="w-full bg-accent-cyan rounded-t-lg shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all duration-500 active-glow" style="height: 94%"></div>
+                        <span class="font-label-sm text-[10px] text-accent-cyan font-bold uppercase">Tue</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                        <div class="w-full bg-accent-cyan/20 rounded-t-lg transition-all duration-500 group-hover:bg-accent-cyan/40" style="height: 88%"></div>
+                        <span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Wed</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                        <div class="w-full bg-accent-cyan/20 rounded-t-lg transition-all duration-500 group-hover:bg-accent-cyan/40" style="height: 91%"></div>
+                        <span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Thu</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                        <div class="w-full bg-accent-cyan/20 rounded-t-lg transition-all duration-500 group-hover:bg-accent-cyan/40" style="height: 85%"></div>
+                        <span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Fri</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                        <div class="w-full bg-accent-cyan/20 rounded-t-lg transition-all duration-500 group-hover:bg-accent-cyan/40" style="height: 89%"></div>
+                        <span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Sat</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+                        <div class="w-full bg-accent-cyan/20 rounded-t-lg transition-all duration-500 group-hover:bg-accent-cyan/40" style="height: 92%"></div>
+                        <span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Sun</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Daily Timeline & AI Recommendations (Kolom 3) -->
+        <div class="lg:col-span-1 flex flex-col gap-gutter">
+            <div class="glass-panel p-container-padding rounded-xl h-full border-l-4 border-l-accent-cyan/20">
+                <div class="flex justify-between items-center mb-stack-md">
+                    <h3 class="font-headline-md text-headline-md text-white">Timeline</h3>
+                    <div class="bg-accent-cyan/10 px-2 py-1 rounded flex items-center gap-1.5 border border-accent-cyan/20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse"></span>
+                        <span class="font-label-sm text-[10px] text-accent-cyan">LIVE 11:24 AM</span>
+                    </div>
+                </div>
+                <div class="relative space-y-10 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-white/10">
+                    <!-- Progress Indicator Line -->
+                    <div class="absolute left-[11px] top-2 w-[2px] bg-accent-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)] h-[55%] z-0"></div>
+                    <!-- 06:00 Wake -->
+                    <div class="relative pl-10">
+                        <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface border border-accent-cyan/60 flex items-center justify-center z-10">
+                            <div class="w-2 h-2 rounded-full bg-accent-cyan"></div>
+                        </div>
+                        <p class="font-label-sm text-label-sm text-accent-cyan">06:00</p>
+                        <h4 class="font-body-md text-body-md text-white font-semibold">Wake &amp; Sunlight</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm">Cortisol spike protocol initiated.</p>
+                    </div>
+                    <!-- 09:00 Peak Focus -->
+                    <div class="relative pl-10">
+                        <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface border border-accent-cyan flex items-center justify-center z-10">
+                            <div class="w-2.5 h-2.5 rounded-full bg-accent-cyan active-glow"></div>
+                        </div>
+                        <p class="font-label-sm text-label-sm text-accent-cyan font-bold">09:00</p>
+                        <h4 class="font-body-md text-body-md text-white font-bold">Peak Focus Window</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm">Deep work session in progress.</p>
+                    </div>
+                    <!-- You Are Here Marker -->
+                    <div class="relative pl-10 -my-2 flex items-center gap-4">
+                        <div class="absolute left-[7px] w-[10px] h-[10px] rounded-full bg-accent-cyan border-2 border-surface z-20 active-glow"></div>
+                        <div class="h-[1px] flex-grow bg-accent-cyan/30"></div>
+                        <span class="font-label-sm text-[9px] text-accent-cyan bg-accent-cyan/10 px-2 py-0.5 rounded border border-accent-cyan/20">CURRENT PHASE</span>
+                    </div>
+                    <!-- 14:00 Energy Dip -->
+                    <div class="relative pl-10 opacity-60">
+                        <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface border border-white/20 flex items-center justify-center z-10">
+                            <div class="w-2 h-2 rounded-full bg-accent-purple"></div>
+                        </div>
+                        <p class="font-label-sm text-label-sm text-accent-purple">14:00</p>
+                        <h4 class="font-body-md text-body-md text-white font-semibold">Energy Dip</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm">Recommended NSDR or light walk.</p>
+                    </div>
+                    <!-- 18:00 Recovery Window -->
+                    <div class="relative pl-10 opacity-40">
+                        <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface border border-white/20 flex items-center justify-center z-10">
+                            <div class="w-2 h-2 rounded-full bg-white/40"></div>
+                        </div>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant">18:00</p>
+                        <h4 class="font-body-md text-body-md text-white font-semibold">Recovery Window</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm">System wind-down &amp; light therapy.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Recommendations Section -->
+            <div class="flex flex-col gap-3">
+                <h3 class="font-headline-md text-[20px] text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-accent-cyan text-[20px]">lightbulb</span>
+                    AI Recommendations
+                </h3>
+                <div class="glass-panel p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:border-accent-cyan/30 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-accent-cyan/10 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-accent-cyan">calendar_today</span>
+                        </div>
+                        <p class="font-body-md text-sm text-white font-medium">Schedule deep work before 11 AM</p>
+                    </div>
+                    <div class="bg-accent-cyan/10 border border-accent-cyan/20 px-2 py-0.5 rounded text-[9px] font-label-sm text-accent-cyan">94% CONFIDENCE</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:border-accent-purple/30 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-accent-purple/10 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-accent-purple">battery_low</span>
+                        </div>
+                        <p class="font-body-md text-sm text-white font-medium">Reduce cognitive load after 2 PM</p>
+                    </div>
+                    <div class="bg-accent-purple/10 border border-accent-purple/20 px-2 py-0.5 rounded text-[9px] font-label-sm text-accent-purple">88% CONFIDENCE</div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl flex items-center justify-between group cursor-pointer hover:border-accent-blue/30 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-accent-blue">bedtime</span>
+                        </div>
+                        <p class="font-body-md text-sm text-white font-medium">Increase evening recovery ritual</p>
+                    </div>
+                    <div class="bg-accent-blue/10 border border-accent-blue/20 px-2 py-0.5 rounded text-[9px] font-label-sm text-accent-blue">91% CONFIDENCE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Intelligent Insights Panel -->
+    <section class="mt-stack-lg">
+        <h3 class="font-headline-md text-headline-md text-white mb-stack-md flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-cyan">bolt</span>
+            Intelligent Insights
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+            <div class="glass-panel p-stack-md rounded-xl flex items-center gap-container-padding group cursor-pointer">
+                <div class="w-16 h-16 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-accent-cyan text-3xl">medical_services</span>
+                </div>
+                <div>
+                    <h4 class="font-body-lg text-body-lg text-white font-bold">Recovery +12%</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant text-sm">Consistent sleep cycles have significantly boosted your heart rate variability (HRV).</p>
+                </div>
+            </div>
+            <div class="glass-panel p-stack-md rounded-xl flex items-center gap-container-padding group cursor-pointer">
+                <div class="w-16 h-16 rounded-lg bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-accent-purple text-3xl">analytics</span>
+                </div>
+                <div>
+                    <h4 class="font-body-lg text-body-lg text-white font-bold">Focus Peak Detected</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant text-sm">You are currently in your metabolic sweet spot. Schedule complex tasks now.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Check-ins Table -->
+    <section class="mt-stack-lg">
+        <h3 class="font-headline-md text-headline-md text-white mb-stack-md flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-cyan">history</span>
+            Recent Check-ins
+        </h3>
+        <div class="glass-panel rounded-xl overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-white/5 bg-white/5">
+                            <th class="px-6 py-4 font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-4 font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Energy Score</th>
+                            <th class="px-6 py-4 font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Mood</th>
+                            <th class="px-6 py-4 font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Mon, May 22</td>
+                            <td class="px-6 py-4"><span class="text-accent-cyan font-bold">88</span></td>
+                            <td class="px-6 py-4 text-on-surface-variant">Focused</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-accent-cyan/10 text-accent-cyan text-[10px] font-bold px-2 py-0.5 rounded border border-accent-cyan/20 uppercase">Optimal</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Sun, May 21</td>
+                            <td class="px-6 py-4"><span class="text-accent-cyan font-bold">82</span></td>
+                            <td class="px-6 py-4 text-on-surface-variant">Relaxed</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-accent-cyan/10 text-accent-cyan text-[10px] font-bold px-2 py-0.5 rounded border border-accent-cyan/20 uppercase">Optimal</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Sat, May 20</td>
+                            <td class="px-6 py-4"><span class="text-white font-bold">76</span></td>
+                            <td class="px-6 py-4 text-on-surface-variant">Social</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-white/10 text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded border border-white/10 uppercase">Average</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Fri, May 19</td>
+                            <td class="px-6 py-4"><span class="text-accent-cyan font-bold">91</span></td>
+                            <td class="px-6 py-4 text-on-surface-variant">Flow State</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-accent-cyan/10 text-accent-cyan text-[10px] font-bold px-2 py-0.5 rounded border border-accent-cyan/20 uppercase">Peak</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="px-6 py-4 text-white font-medium">Thu, May 18</td>
+                            <td class="px-6 py-4"><span class="text-energy-low font-bold">64</span></td>
+                            <td class="px-6 py-4 text-on-surface-variant">Fatigued</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-energy-low/10 text-energy-low text-[10px] font-bold px-2 py-0.5 rounded border border-energy-low/20 uppercase">Recovery Required</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Mobile Bottom Navigation (Bebas Potong, Ditutup Rapi) -->
+<div class="md:hidden fixed bottom-6 left-6 right-6 z-50 glass-panel border border-white/10 rounded-2xl px-2 py-3 flex justify-around items-center shadow-[0_15px_40px_-10px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="index.html">
+        <span class="material-symbols-outlined text-2xl">home</span>
+        <span class="font-label-sm text-[9px] tracking-widest">HOME</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-accent-cyan active-glow relative" href="#">
+        <div class="absolute -top-1 w-1 h-1 bg-accent-cyan rounded-full"></div>
+        <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+        <span class="font-label-sm text-[9px] tracking-widest font-bold">DASHBOARD</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="forecast.html">
+        <span class="material-symbols-outlined text-2xl">monitoring</span>
+        <span class="font-label-sm text-[9px] tracking-widest">FORECAST</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-on-surface-variant/60 hover:text-white transition-colors" href="profile.html">
+        <span class="material-symbols-outlined text-2xl">person</span>
+        <span class="font-label-sm text-[9px] tracking-widest">PROFILE</span>
+    </a>
+</div>
+
+<!-- Desktop Footer -->
+<footer class="hidden md:block mt-24 border-t border-white/5 bg-[#070912] py-16">
+    <div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-container-padding gap-8">
+        <div class="flex flex-col gap-2">
+            <span class="font-bold text-xl text-white tracking-tighter">Drift</span>
+            <p class="text-on-surface-variant/40 text-xs">© 2026 Drift Intelligence Platform.</p>
+        </div>
+        <div class="flex gap-12">
+            <a class="text-xs font-bold text-on-surface-variant/40 hover:text-white transition-colors uppercase tracking-widest" href="#">Science</a>
+            <a class="text-xs font-bold text-on-surface-variant/40 hover:text-white transition-colors uppercase tracking-widest" href="#">Privacy</a>
+            <a class="text-xs font-bold text-on-surface-variant/40 hover:text-white transition-colors uppercase tracking-widest" href="#">API</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const scoreElement = document.querySelector('.font-display-lg');
+        if (scoreElement) {
+            let startValue = 0;
+            const targetText = scoreElement.innerText;
+            const endValue = parseInt(targetText);
+            if (!isNaN(endValue)) {
+                const duration = 2000;
+                const stepTime = Math.abs(Math.floor(duration / endValue));
+                
+                const timer = setInterval(() => {
+                    startValue += 1;
+                    scoreElement.innerText = startValue;
+                    if (startValue >= endValue) {
+                        scoreElement.innerText = targetText;
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+            }
+        }
+    });
+</script>
+</body>
+</html>

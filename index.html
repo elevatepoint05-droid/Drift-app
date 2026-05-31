@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Drift | Pahami Energi & Produktivitasmu</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-deep": "#0B1020",
+                        "energy-high": "#22D3EE",
+                        "accent-blue": "#60A5FA",
+                        "surface-elevated": "#111827",
+                        "accent-cyan": "#22D3EE",
+                        "surface-variant": "#353436",
+                        "surface-container": "#201f21",
+                        "surface-tint": "#c1c5dc",
+                        "surface": "#131315",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "secondary-container": "#3131c0",
+                        "outline-variant": "#46464c",
+                        "primary-fixed": "#dee1f9",
+                        "surface-bright": "#39393a",
+                        "energy-mid": "#A855F7",
+                        "surface-container-highest": "#353436",
+                        "on-primary": "#2b3041",
+                        "primary-container": "#0b1020",
+                        "on-primary-container": "#777c90",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "tertiary": "#2fd9f4",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#595e71",
+                        "on-secondary": "#1000a9",
+                        "surface-dim": "#131315",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "background": "#131315",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "on-primary-fixed": "#161b2b",
+                        "on-background": "#e5e2e3",
+                        "surface-container-lowest": "#0e0e0f",
+                        "outline": "#909097",
+                        "surface-container-low": "#1c1b1d",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#07006c",
+                        "energy-low": "#F43F5E",
+                        "inverse-surface": "#e5e2e3",
+                        "on-secondary-container": "#b0b2ff",
+                        "primary": "#c1c5dc",
+                        "on-tertiary-fixed": "#001f25",
+                        "on-tertiary": "#00363e",
+                        "primary-fixed-dim": "#c1c5dc",
+                        "secondary": "#c0c1ff",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e5e2e3",
+                        "tertiary-container": "#001317",
+                        "tertiary-fixed": "#a2eeff",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#00899c",
+                        "on-primary-fixed-variant": "#414658",
+                        "accent-purple": "#A855F7",
+                        "surface-container-high": "#2a2a2b",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-surface-variant": "#c7c6cd",
+                        "inverse-on-surface": "#313032"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "unit": "8px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["'Hanken Grotesk'", "sans-serif"],
+                        "headline-lg-mobile": ["'Hanken Grotesk'", "sans-serif"],
+                        "body-lg": ["'Inter'", "sans-serif"],
+                        "display-lg": ["'Hanken Grotesk'", "sans-serif"],
+                        "label-sm": ["'JetBrains Mono'", "monospace"],
+                        "headline-md": ["'Hanken Grotesk'", "sans-serif"],
+                        "body-md": ["'Inter'", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B1020;
+            color: #e5e2e3;
+            overflow-x: hidden;
+            min-height: 100dvh;
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 40px -10px rgba(34, 211, 238, 0.2);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.08) 0%, rgba(11, 16, 32, 0) 70%);
+        }
+        /* Ring score kustom sesuai referensi image_30a837.png */
+        .energy-ring {
+            background: conic-gradient(from 220deg at 50% 50%, #22D3EE 0deg, #60A5FA 120deg, #A855F7 240deg, transparent 300deg, transparent 360deg);
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #fff calc(100% - 13px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 14px), #fff calc(100% - 13px));
+            border-radius: 50%;
+            filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.6));
+        }
+        .curved-line {
+            stroke: rgba(34, 211, 238, 0.2);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-dasharray: 5, 5;
+            animation: dash 60s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+        .pulse-wave {
+            animation: pulse-wave 4s ease-in-out infinite;
+        }
+        @keyframes pulse-wave {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.08); opacity: 0.4; }
+        }
+        .scroll-trigger-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 2s ease-out;
+        }
+        .scroll-trigger-path.active {
+            stroke-dashoffset: 0;
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-energy-high selection:text-surface-deep">
+    
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-surface/60 border-b border-white/10 h-20 transition-all duration-300">
+        <div class="flex justify-between items-center max-w-[1200px] mx-auto px-container-padding h-full">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-energy-high text-headline-md">waves</span>
+                <span class="text-headline-md font-headline-md tracking-tight text-on-surface">Drift</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-accent-cyan font-semibold hover:text-energy-high transition-colors" href="#">Home</a>
+                <a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors" href="#narrative">Fitur</a>
+                <a class="text-on-surface-variant/80 font-medium hover:text-energy-high transition-colors" href="#forecast">Analisis</a>
+                <a class="px-6 py-2 rounded-full glass-panel text-on-surface hover:bg-white/5 transition-all" href="dashboard.html">Akses Awal</a>
+            </div>
+            <button class="md:hidden text-on-surface">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-container-padding">
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="relative z-10 max-w-[900px] text-center">
+                <span class="font-label-sm text-label-sm uppercase tracking-widest text-accent-cyan mb-6 block reveal active">Asisten Energi Digitalmu</span>
+                <h1 class="font-display-lg text-display-lg md:text-[64px] leading-tight mb-8 reveal active" style="transition-delay: 100ms;">
+                    Selesaikan tugas hari ini tanpa tumbang karena <span class="text-energy-high italic">burnout</span> besok.
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mx-auto mb-12 reveal active" style="transition-delay: 200ms;">Drift memetakan pola fokus dan energi harianmu untuk memprediksi kelelahan mental sebelum rasa malas dan jenuh menyerang.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 reveal active" style="transition-delay: 300ms;">
+    <!-- SEBELUMNYA BUTTON, SEKARANG UDAH JADI LINK A -->
+    <a href="dashboard.html" class="w-full sm:w-auto text-center px-10 py-4 rounded-full bg-energy-high text-surface-deep font-semibold shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:scale-105 transition-transform">
+        Coba Gratis
+    </a>
+    <button class="w-full sm:w-auto px-10 py-4 rounded-full glass-panel text-on-surface border border-white/10 hover:bg-white/5 transition-all">
+        Pelajari Sistem AI
+    </button>
+</div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+                <span class="material-symbols-outlined">keyboard_double_arrow_down</span>
+            </div>
+        </section>
+
+        <!-- Chapter 1: Tampilan Ring yang Diperbarui -->
+        <section class="relative py-32 overflow-hidden" id="narrative">
+            <div class="max-w-[1200px] mx-auto px-container-padding relative">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="reveal">
+                        <span class="font-label-sm text-accent-cyan mb-4 block tracking-widest">CHAPTER 01</span>
+                        <h2 class="font-display-lg text-[40px] md:text-[56px] leading-tight mb-6">Pantau kapasitas aslimu.</h2>
+                        <p class="text-on-surface-variant font-body-lg mb-8 leading-relaxed">Bukan cuma menghitung langkah kaki. Drift memvisualisasikan sisa bahan bakar fokus harianmu saat ini secara *real-time*, mendeteksi kesiapan mental untuk tugas-tugas berat.</p>
+                        <div class="flex items-center gap-4 py-4 px-6 glass-panel rounded-2xl w-fit">
+                            <div class="w-3 h-3 rounded-full bg-energy-high animate-pulse"></div>
+                            <span class="text-energy-high font-semibold">Fokus Berada di Fase Puncak</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Sektor Ring Sesuai image_30a837.png -->
+                    <div class="relative flex justify-center items-center py-20 reveal">
+                        <div class="absolute w-[360px] h-[360px] border border-white/5 rounded-full pulse-wave"></div>
+                        <div class="absolute w-[290px] h-[290px] border border-white/5 rounded-full pulse-wave" style="animation-delay: 1s;"></div>
+                        
+                        <!-- Ring Luar Tebal dengan Conic Gradient -->
+                        <div class="absolute w-64 h-64 energy-ring z-0"></div>
+                        
+                        <!-- Konten Tengah Ring -->
+                        <div class="relative z-10 w-[226px] h-[226px] rounded-full bg-[#0B1020] flex flex-col items-center justify-center">
+                            <span class="text-[76px] font-display-lg font-light leading-none text-white tracking-tight">84</span>
+                            <span class="text-[10px] font-mono text-on-surface-variant/70 tracking-widest mt-2 uppercase">Energy Score</span>
+                            <div class="flex items-center gap-1 text-accent-cyan text-xs font-medium mt-4">
+                                <span class="text-[10px]">▲</span>
+                                <span>+6 vs kemarin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Koneksi Antar Elemen Desktop -->
+            <div class="max-w-[1200px] mx-auto px-container-padding h-32 hidden lg:block">
+                <svg class="w-full h-full" viewBox="0 0 1000 100">
+                    <path class="curved-line scroll-trigger-path" d="M 750 0 Q 750 100 500 100"></path>
+                </svg>
+            </div>
+
+            <!-- Chapter 2: 4 Node yang Diperbaiki Agar Responsif (Bebas Tabrakan absolute) -->
+            <div class="max-w-[1200px] mx-auto px-container-padding mt-20">
+                <div class="text-center mb-16 reveal">
+                    <h3 class="font-headline-lg text-3xl mb-4">4 Pilar Kondisi Harian</h3>
+                    <p class="text-on-surface-variant max-w-xl mx-auto">Gabungan parameter penting untuk mengukur kestabilan performa belajarmu.</p>
+                </div>
+                
+                <!-- Menggunakan layout fleksibel: grid di HP/Tablet, absolute terkontrol di Layar Besar (lg) -->
+                <div class="relative min-h-auto lg:min-h-[550px] grid grid-cols-1 md:grid-cols-2 lg:block gap-6">
+                    
+                    <!-- Central Hub: Hanya tampil di tengah pas layar besar, di mobile menyesuaikan paling atas -->
+                    <div class="order-first col-span-1 md:col-span-2 mx-auto lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 w-44 h-44 glass-panel rounded-full flex flex-col items-center justify-center z-20 border-white/20 reveal mb-4 lg:mb-0">
+                        <span class="material-symbols-outlined text-energy-mid text-4xl mb-2">auto_graph</span>
+                        <span class="text-label-sm text-center px-4 leading-tight">Evaluasi<br/>Kondisi</span>
+                    </div>
+
+                    <!-- Node 1: Sleep -->
+                    <div class="lg:absolute lg:left-[5%] lg:top-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-accent-blue/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-accent-blue text-xl">dark_mode</span>
+                            </div>
+                            <h4 class="font-headline-md text-lg">Kualitas Tidur</h4>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">Mengukur efisiensi pemulihan sel otak, bukan cuma durasi jam tidur.</p>
+                    </div>
+
+                    <!-- Node 2: Energy -->
+                    <div class="lg:absolute lg:right-[5%] lg:top-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal" style="transition-delay: 100ms;">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-energy-high/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-energy-high text-xl">bolt</span>
+                            </div>
+                            <h4 class="font-headline-md text-lg">Cadangan Energi</h4>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">Bahan bakar siap pakai untuk fokus mengejar tenggat materi sulit.</p>
+                    </div>
+
+                    <!-- Node 3: Stress -->
+                    <div class="lg:absolute lg:left-[5%] lg:bottom-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal" style="transition-delay: 200ms;">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-energy-low/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-energy-low text-xl">pulmonology</span>
+                            </div>
+                            <h4 class="font-headline-md text-lg">Beban Mental</h4>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">Tekanan psikologis harian akibat kelelahan tugas atau kurang istirahat.</p>
+                    </div>
+
+                    <!-- Node 4: Focus -->
+                    <div class="lg:absolute lg:right-[5%] lg:bottom-0 w-full lg:w-64 p-6 glass-panel rounded-3xl reveal" style="transition-delay: 300ms;">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-energy-mid/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-energy-mid text-xl">center_focus_strong</span>
+                            </div>
+                            <h4 class="font-headline-md text-lg">Ketahanan Fokus</h4>
+                        </div>
+                        <p class="text-sm text-on-surface-variant">Kapasitas otak untuk diajak berpikir mendalam tanpa distraksi gawai.</p>
+                    </div>
+
+                    <!-- Garis Penghubung SVG (Hanya aktif di Desktop agar tidak merusak mobile layout) -->
+                    <svg class="absolute inset-0 w-full h-full -z-10 hidden lg:block" viewBox="0 0 1000 550">
+                        <path class="curved-line" d="M 250 100 Q 500 100 500 275"></path>
+                        <path class="curved-line" d="M 750 100 Q 500 100 500 275"></path>
+                        <path class="curved-line" d="M 250 450 Q 500 450 500 275"></path>
+                        <path class="curved-line" d="M 750 450 Q 500 450 500 275"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="max-w-[1200px] mx-auto px-container-padding h-32 hidden lg:block">
+                <svg class="w-full h-full" viewBox="0 0 1000 100">
+                    <path class="curved-line scroll-trigger-path" d="M 500 0 Q 500 100 250 100"></path>
+                </svg>
+            </div>
+
+            <!-- Bagian Proses Pendeteksian AI -->
+            <div class="max-w-[1200px] mx-auto px-container-padding mt-20">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1 relative p-6 md:p-12 glass-panel rounded-[40px] border-white/5 reveal">
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="h-1 w-full bg-energy-high/40 rounded"></div>
+                            <div class="h-1 w-full bg-energy-high/40 rounded"></div>
+                            <div class="h-1 w-full bg-white/10 rounded"></div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
+                                <div class="w-8 h-8 rounded-full bg-accent-cyan/20 flex items-center justify-center text-accent-cyan text-xs font-mono">01</div>
+                                <span class="text-sm font-medium">Membaca data aktivitas belajar...</span>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/10 p-4 rounded-xl border border-energy-high/20">
+                                <div class="w-8 h-8 rounded-full bg-energy-high/20 flex items-center justify-center text-energy-high text-xs font-mono">02</div>
+                                <span class="text-sm font-medium">Menganalisis tanda kejenuhan mental...</span>
+                                <span class="ml-auto material-symbols-outlined text-energy-high animate-spin text-sm">settings_b_roll</span>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10 opacity-50">
+                                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-mono">03</div>
+                                <span class="text-sm font-medium">Menghitung rincian jadwal pemulihan...</span>
+                            </div>
+                        </div>
+                        <div class="mt-10 pt-10 border-t border-white/5 flex justify-between items-end">
+                            <div>
+                                <p class="text-label-sm text-on-surface-variant uppercase mb-1">Kecepatan AI</p>
+                                <p class="text-xl font-headline-md">14ms</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-label-sm text-on-surface-variant uppercase mb-1">Akurasi Prediksi</p>
+                                <p class="text-xl font-headline-md text-energy-high">99.4%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 reveal">
+                        <span class="font-label-sm text-accent-cyan mb-4 block tracking-widest">CHAPTER 02</span>
+                        <h2 class="font-display-lg text-[40px] md:text-[56px] leading-tight mb-6">Deteksi dini sebelum lelah mendalam.</h2>
+                        <p class="text-on-surface-variant font-body-lg mb-8 leading-relaxed">Sistem kecerdasan buatan Drift mengenali kebiasaan unikmu secara personal. AI ini bisa membedakan kapan kamu sedang produktif mengejar target kerja dan kapan kamu sedang memaksa otak melewati ambang batas amannya.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-[1200px] mx-auto px-container-padding h-48 hidden lg:block">
+                <svg class="w-full h-full" viewBox="0 0 1000 200">
+                    <path class="curved-line scroll-trigger-path" d="M 250 0 Q 250 200 500 200"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Chapter 3: Grafik Prakiraan - Mengubah HRV Volatility ke Istilah Sederhana -->
+        <section class="py-32 bg-surface-container-lowest/30 relative" id="forecast">
+            <div class="max-w-[1200px] mx-auto px-container-padding">
+                <div class="text-center mb-24 reveal">
+                    <span class="font-label-sm text-energy-mid mb-4 block tracking-widest uppercase">Chapter 03: Prediksi Masa Depan</span>
+                    <h2 class="font-display-lg text-[40px] md:text-[56px] mb-6">Ambil kendali penuh.</h2>
+                    <p class="text-on-surface-variant max-w-2xl mx-auto font-body-lg">Tanpa penyesuaian jadwal, grafik energi belajarmu diprediksi menurun drastis. Antisipasi kemerosotan motivasi sebelum terjadi.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Grafik Tren -->
+                    <div class="lg:col-span-8 glass-panel rounded-[32px] p-6 md:p-12 reveal">
+                        <div class="flex justify-between items-start mb-12">
+                            <div>
+                                <h4 class="text-headline-md mb-2">Proyeksi Energi 14 Hari</h4>
+                                <p class="text-on-surface-variant text-sm">Prediksi penurunan performa berdasarkan rasio stres harianmu.</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="px-3 py-1 rounded-full bg-white/5 text-[10px] uppercase font-mono tracking-tighter">Normal</div>
+                                <div class="px-3 py-1 rounded-full bg-energy-low/20 text-energy-low text-[10px] uppercase font-mono tracking-tighter border border-energy-low/30">Risiko Jenuh</div>
+                            </div>
+                        </div>
+                        <div class="relative h-[300px] w-full mt-10">
+                            <div class="absolute inset-0 grid grid-rows-4 gap-0">
+                                <div class="border-t border-white/5 w-full"></div>
+                                <div class="border-t border-white/5 w-full"></div>
+                                <div class="border-t border-white/5 w-full"></div>
+                                <div class="border-t border-white/5 w-full"></div>
+                            </div>
+                            <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 800 300">
+                                <path d="M 0 50 Q 200 60 400 45 T 800 55" fill="none" stroke="rgba(34, 211, 238, 0.1)" stroke-width="2"></path>
+                                <path class="scroll-trigger-path active" d="M 0 50 Q 200 40 400 120 T 800 280" fill="none" stroke="#A855F7" stroke-width="4" style="filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));"></path>
+                                <circle cx="0" cy="50" fill="#22D3EE" r="6"></circle>
+                                <circle cx="800" cy="280" fill="#F43F5E" r="6"></circle>
+                            </svg>
+                            <div class="absolute left-0 top-2 -translate-y-full text-[10px] font-mono text-on-surface-variant uppercase">Hari Ini (84)</div>
+                            <div class="absolute right-0 bottom-2 translate-y-full text-[10px] font-mono text-energy-low uppercase">Hari ke-14 (61)</div>
+                            <div class="absolute right-0 bottom-0 top-[60%] w-1/3 bg-gradient-to-l from-energy-low/10 to-transparent"></div>
+                        </div>
+                        
+                        <!-- Statistik Pengukur (HRV diubah ke Istilah Ramah Pengguna) -->
+                        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <div>
+                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Fokus Produktif Maksimal</p>
+                                <p class="text-2xl font-display-lg text-energy-high">04:30<span class="text-xs ml-1">jam</span></p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Stabilitas Berpikir</p>
+                                <p class="text-2xl font-display-lg text-energy-mid">-24%</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Tingkat Stres Fisik</p>
+                                <p class="text-2xl font-display-lg text-energy-low">+42%</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-mono text-on-surface-variant uppercase mb-2">Hutang Istirahat</p>
+                                <p class="text-2xl font-display-lg text-white">2.5<span class="text-xs ml-1">jam</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Rekomendasi Solusi Pintar -->
+                    <div class="lg:col-span-4 flex flex-col gap-8 reveal" style="transition-delay: 200ms;">
+                        <div class="glass-panel rounded-[32px] p-8 flex-1 border-energy-high/10">
+                            <div class="flex items-center gap-3 mb-8">
+                                <span class="material-symbols-outlined text-energy-high">auto_fix_high</span>
+                                <h4 class="text-headline-md text-lg">Saran Pemulihan AI</h4>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 h-full w-1 bg-accent-blue"></div>
+                                    <p class="text-xs font-mono text-accent-blue uppercase mb-2">Koreksi Pola Istirahat</p>
+                                    <p class="text-sm font-medium leading-relaxed">Kualitas tidurmu menurun dalam 3 hari terakhir. Coba matikan layar gawai 45 menit lebih awal malam ini.</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 h-full w-1 bg-energy-mid"></div>
+                                    <p class="text-xs font-mono text-energy-mid uppercase mb-2">Beban Otak Tinggi</p>
+                                    <p class="text-sm font-medium leading-relaxed">Rabu sore adalah titik energi terendahmu. Disarankan memindahkan sesi belajar berat ke jam 9 pagi.</p>
+                                </div>
+                            </div>
+                            <button class="w-full mt-10 py-4 rounded-full bg-white/5 border border-white/10 text-sm font-semibold hover:bg-white/10 transition-all">
+                                Buka Rincian Lengkap Timeline
+                            </button>
+                        </div>
+                        <div class="glass-panel rounded-[32px] p-8 bg-energy-low/5 border-energy-low/20">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-[10px] font-mono text-energy-low uppercase tracking-widest">Risiko Kelelahan Jenuh</p>
+                                    <p class="text-[40px] font-display-lg leading-none mt-1">63%</p>
+                                </div>
+                                <div class="w-16 h-16 rounded-full border-4 border-energy-low/20 border-t-energy-low animate-spin" style="animation-duration: 3s;"></div>
+                            </div>
+                            <p class="text-xs text-on-surface-variant mt-4 italic">Kemungkinan besar konsentrasi belajarmu drop total di pekan depan jika ritme beban kerja tidak dikurangi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Form Akses -->
+        <section class="py-32 px-container-padding relative">
+            <div class="absolute inset-0 hero-gradient opacity-30"></div>
+            <div class="max-w-[800px] mx-auto text-center reveal">
+                <h2 class="font-display-lg text-display-lg mb-8">Siap mengoptimalkan performa harianmu?</h2>
+                <p class="text-body-lg text-on-surface-variant mb-12">Kami membuka kuota terbatas untuk pelajar, mahasiswa, dan pekerja kreatif yang ingin mencoba versi beta pertamanya.</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-[500px] mx-auto">
+                    <input class="flex-1 bg-surface-elevated border border-white/10 rounded-full px-8 py-4 focus:ring-2 focus:ring-energy-high focus:border-transparent outline-none transition-all text-white" placeholder="Masukkan alamat email kamu" type="email"/>
+                    <button class="bg-energy-high text-surface-deep font-bold px-10 py-4 rounded-full hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all" type="submit">
+                        Daftar Antrean
+                    </button>
+                </form>
+                <p class="mt-8 font-label-sm text-on-surface-variant/60">Terbatas hanya untuk 500 pengguna gelombang pertama.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer - Diperbarui agar tidak kadaluwarsa -->
+    <footer class="bg-surface-deep border-t border-white/5 w-full py-16">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-container-padding gap-gutter">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <span class="font-headline-md text-headline-md text-energy-high">Drift</span>
+                <p class="text-on-surface-variant/60 text-body-md text-center md:text-left">© 2026 Drift. Manajemen Energi Pintar untuk Produktivitas.</p>
+            </div>
+            <div class="flex gap-8">
+                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Filosofi</a>
+                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Sistem Sains</a>
+                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Privasi</a>
+                <a class="text-on-surface-variant hover:text-accent-blue transition-colors cursor-pointer text-body-md" href="#">Kontak</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    const paths = entry.target.querySelectorAll('.scroll-trigger-path');
+                    paths.forEach(path => path.classList.add('active'));
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const nav = document.querySelector('nav');
+            
+            if (currentScroll <= 0) {
+                nav.style.transform = 'translateY(0)';
+                nav.classList.remove('h-16');
+                nav.classList.add('h-20');
+                return;
+            }
+            
+            if (currentScroll > lastScroll) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+                nav.classList.remove('h-20');
+                nav.classList.add('h-16');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

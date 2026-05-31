@@ -1,0 +1,208 @@
+﻿DRIFT PRD v1
+Product Name
+Drift
+Product Vision
+Drift is an AI-powered wellness intelligence platform that helps people understand, predict, and optimize their daily energy, focus, and recovery.
+Instead of only tracking health metrics, Drift helps users know:
+* When they will perform best
+* When they should focus
+* When they should rest
+* How today's habits affect tomorrow's performance
+The goal is to transform wellness data into actionable daily decisions.
+________________
+
+
+Problem
+Most wellness apps only show data.
+Users see:
+* Sleep score
+* Heart rate
+* Recovery score
+But they still don't know:
+"What should I do today?"
+Existing wellness apps provide information but rarely provide clear guidance.
+________________
+
+
+Solution
+Drift converts wellness data into daily intelligence.
+The app predicts:
+* Focus windows
+* Energy peaks
+* Recovery capacity
+* Stress risk
+Then provides personalized recommendations.
+Example:
+"Your highest focus window today is 09:15–11:00."
+"Recovery is elevated. Deep work is recommended."
+"Energy dip expected at 14:30. Take a short walk."
+________________
+
+
+Target Users
+Primary Users:
+* Students
+* Founders
+* Freelancers
+* Creators
+* Remote workers
+* Knowledge workers
+Age:
+16–40
+Characteristics:
+* Care about productivity
+* Care about self-improvement
+* Interested in health optimization
+* Want practical insights, not raw data
+________________
+
+
+Core Product Promise
+Know your best hours before they happen.
+________________
+
+
+Core Features
+1. Energy Score
+Single score representing:
+* Energy
+* Recovery
+* Mental readiness
+Scale:
+0–100
+Updates daily.
+________________
+
+
+2. Daily Forecast
+Predictive timeline showing:
+* Energy peaks
+* Focus windows
+* Recovery periods
+* Energy dips
+Visual forecast throughout the day.
+________________
+
+
+3. Wellness Intelligence
+AI-generated insights based on user behavior.
+Examples:
+"Flow state probability is high this morning."
+"Sleep quality increased recovery by 12%."
+"Stress accumulation is lower than average."
+________________
+
+
+4. Daily Check-In
+Simple emotional check-in:
+😀 Great
+🙂 Good
+😐 Okay
+😔 Low Energy
+Used to improve AI predictions.
+________________
+
+
+5. Habit Impact Analysis
+Shows how habits affect performance.
+Examples:
+* Sleep
+* Exercise
+* Water intake
+* Screen time
+* Caffeine
+________________
+
+
+User Journey
+Morning
+1. User opens Drift
+2. Sees Energy Score
+3. Reviews Daily Forecast
+4. Receives AI recommendations
+During Day
+1. Receives smart reminders
+2. Tracks mood and energy
+Evening
+1. Completes quick reflection
+2. AI learns from behavior
+Next Day
+1. Better predictions
+2. Personalized recommendations
+________________
+
+
+Retention Loop
+User checks forecast
+↓
+User follows recommendation
+↓
+Performance improves
+↓
+User notices improvement
+↓
+Trust increases
+↓
+Returns daily
+________________
+
+
+Free Plan
+* Daily Energy Score
+* Basic Forecast
+* Daily Check-In
+* Limited AI Insights
+________________
+
+
+Premium Plan
+* Advanced Forecasting
+* Habit Impact Analysis
+* Personalized Coaching
+* Weekly Performance Reports
+* Long-Term Trends
+* Advanced AI Recommendations
+________________
+
+
+Future Features
+Phase 2
+* Wearable integration
+* Apple Health integration
+* Google Fit integration
+Phase 3
+* Team energy optimization
+* Study mode
+* Deep work planner
+* Burnout prediction
+Phase 4
+* AI wellness coach
+* Adaptive schedules
+* Performance planning
+________________
+
+
+Success Metric
+Primary Metric:
+Daily Active Users (DAU)
+Secondary Metrics:
+* Daily check-in completion
+* Forecast engagement
+* Premium conversion rate
+* 30-day retention
+________________
+
+
+Design Direction
+Premium
+Minimal
+Calm
+Scientific
+Trustworthy
+Avoid:
+* Gamification overload
+* Social media aesthetics
+* Generic fitness dashboard designs
+* Overly futuristic AI visuals
+Drift should feel like:
+"The Apple of personal performance intelligence."
